@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block titulo %}Listado de promotores{% endblock %}
+
+{% block contenido %}
+    <h2>Listado de promotores musicales</h2>
+    {% if lista_promotores %}
+        <ul>
+            {% for pro in lista_promotores %}
+                <li>
+                    <a href="/PromoConcert/promotores/{{ pro.idPromotor }}">{{ pro.namePromotor}}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay promotores musicales.</p>
+    {% endif %}
+{% endblock %}

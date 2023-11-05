@@ -1,24 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <link rel="stylesheet" href="style.css">
-        <title>Listado de festivales</title>
-    </head>
-    <body>
-        <div id="content">
-	     <h1>Gestor de Festivales</h1>
-         <h2>Listado de festivales musicales</h2>
-         {% if lista_festivales %}
-             <ul>
-             {% for fest in lista_festivales %}
-                 <li>
-                     <a href="/PromoConcert/festivales/{{ fest.idFestival }}">{{ fest.nameFestival}}</a>
-                 </li>
-             {% endfor %}
-             </ul>
-         {% else %}
-         <p>No hay festivales musicales.</p>
-         {% endif %}
-        </div>
-    </body>
-</html>
+{% extends "base.html" %}
+
+{% block titulo %}Listado de departamentos{% endblock %}
+
+{% block contenido %}
+    <h2>Listado de festivales</h2>
+    {% if lista_festivales %}
+        <ul>
+            {% for fest in lista_festivales %}
+            <li>
+                <a href="/PromoConcert/festivales/{{ fest.idFestival }}">{{ fest.nameFestival}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay festivales musicales.</p>
+    {% endif %}
+{% endblock %}

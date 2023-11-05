@@ -5,12 +5,12 @@ from .models import Promotor, Festival, Interprete, Actuacion
 def index_promotores(request):
     promotores = get_list_or_404(Promotor.objects.all())
     output = ', '.join([promotor.namePromotor for promotor in promotores])
-    return HttpResponse(request, 'index.html', output)
+    return HttpResponse(request, 'indexPromotor.html', {'output': output})
 
 def show_promotor(request, promotor_id):
     promotor = get_object_or_404(Promotor, pk=promotor_id)
 
-    festivalesPropios = Festival.objects.filter(idPrmotor=promotor_id)          # Actuaciones del festival
+    festivalesPropios = Festival.objects.filter(idPromotor=promotor_id)          # Actuaciones del festival
     festivales = []
 
     for festival in festivalesPropios:
@@ -23,12 +23,12 @@ def show_promotor(request, promotor_id):
         for fest in festivales:
             output += '\n' + (fest)
     
-    return HttpResponse(request, 'promotor.html', output)
+    return HttpResponse(request, 'promotorDetail.html', output)
 
 def index_festivales(request):
     festivales = get_list_or_404(Festival.objects.all())
     output = ', '.join([festival.nombreFestival for festival in festivales])
-    return HttpResponse(request, 'indexFestivales.html', output)
+    return HttpResponse(request, 'indexFestivales.html', {'output': output})
 
 def show_festival(request, festival_id):
     festival = get_object_or_404(Festival, pk=festival_id)
@@ -46,12 +46,12 @@ def show_festival(request, festival_id):
         for interprete in interpretes:
             output += '\n' + (interprete)
     
-    return HttpResponse(request, 'festival.html', output)
+    return HttpResponse(request, 'festivalDetail.html', output)
 
 def index_interpretes(request):
     interpretes = get_list_or_404(Interprete.objects.all())
     output = ', '.join([interprete.nameInterprete for interprete in interpretes])
-    return HttpResponse(request, 'indexInterpretes.html', output)
+    return HttpResponse(request, 'indexInterpretes.html', {'output': output})
 
 def show_interprete(request, interprete_id):
     interprete = get_list_or_404(Interprete, pk=interprete_id)
@@ -69,7 +69,7 @@ def show_interprete(request, interprete_id):
         for festival in festivales:
             output += '\n' + (festival)
     
-    return HttpResponse(request, 'interprete.html', output)
+    return HttpResponse(request, 'interpreteDetail.html', output)
 
 """ 
 def index_actuaciones(request):

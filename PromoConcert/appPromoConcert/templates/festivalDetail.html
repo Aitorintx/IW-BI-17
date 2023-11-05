@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block titulo %} Detalle del departamento {% endblock %}
+
+{% block contenido %}
+    <h2>Datos del festival</h2>
+    {% if festival %}
+        <ul>
+            <li>
+                {{ festival.nameFestival}}
+            </li>
+            <li>
+                {{ festival.infoFestival}}
+            </li>
+            <li>
+                <!-- REVISAR -->
+                {{ promotor.namePromotor}}      
+            </li>
+        </ul>
+        <h2>Intérpretes del {{ festival.nameFestival }}</h2>
+        {% if interpretes %}
+            <ul>
+                {% for inter in interpretes %}
+                    <li>
+                        {{ inter.nameInterprete }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Este festival no tiene intérpretes confirmados todavía.</p>
+        {% endif %}
+    {% else %}
+        <p>No existe este festival.</p>
+    {% endif %}
+
+{% endblock %}
