@@ -9,7 +9,20 @@ def index_promotores(request):
 
 def show_promotor(request, promotor_id):
     promotor = get_object_or_404(Promotor, pk=promotor_id)
-    output = f'Detalles del promotor: {promotor.idPromotor}, {promotor.namePromotor}, {promotor.infoPromotor}'
+
+    festivalesPropios = Festival.objects.filter(idPrmotor=promotor_id)          # Actuaciones del festival
+    festivales = []
+
+    for festival in festivalesPropios:
+        festivalHecho = get_object_or_404(Festival, pk=festival.idFestival)       #Interpretes que aparezcan
+        festivales.append(festivalHecho.nombreFestival)            # Nombres de los intérpretes
+
+    output = f'Detalles del promotor: {promotor.idPromotor}, {promotor.namePromotor}, {promotor.infoPromotor} \n Festivales: '
+    
+    if festivales:
+        for fest in festivales:
+            output += '\n' + (fest)
+    
     return HttpResponse(output)
 
 def index_festivales(request):
@@ -19,7 +32,20 @@ def index_festivales(request):
 
 def show_festival(request, festival_id):
     festival = get_object_or_404(Festival, pk=festival_id)
-    output = f'Detalles del festival: {festival.idFestival}, {festival.nombreFestival}, {festival.infoFestival}, {festival.fecha}, Promotor: {festival.idPromotor.namePromotor}'
+
+    actuaciones = Actuacion.objects.filter(idFestival=festival_id)          # Actuaciones del festival
+    interpretes = []
+
+    for actuacion in actuaciones:
+        interprete = get_object_or_404(Interprete, pk=actuacion.idInterprete)       #Interpretes que aparezcan
+        interpretes.append(interprete.nombreInterprete)            # Nombres de los intérpretes
+
+    output = f'Detalles del festival: {festival.idFestival}, {festival.nombreFestival}, {festival.infoFestival}, {festival.fecha}, Promotor: {festival.idPromotor.namePromotor}. \n Interpretes: '
+
+    if interpretes:
+        for interprete in interpretes:
+            output += '\n' + (interprete)
+    
     return HttpResponse(output)
 
 def index_interpretes(request):
@@ -29,9 +55,23 @@ def index_interpretes(request):
 
 def show_interprete(request, interprete_id):
     interprete = get_object_or_404(Interprete, pk=interprete_id)
-    output = f'Detalles del intérprete: {interprete.idInterprete}, {interprete.nameInterprete}, {interprete.infoInteprete}'
+
+    actuaciones = Actuacion.objects.filter(idInterprete=interprete_id)          # Actuaciones del festival
+    festivales = []
+
+    for actuacion in actuaciones:
+        festival = get_object_or_404(Festival, pk=actuacion.idFestival)       #Interpretes que aparezcan
+        festivales.append(festival.nombreFestival)            # Nombres de los intérpretes
+
+    output = f'Detalles del intérprete: {interprete.idInterprete}, {interprete.nameInterprete}, {interprete.infoInteprete} \n Actuaciones: {}'
+    
+    if festivales:
+        for festival in festivales:
+            output += '\n' + (festival)
+    
     return HttpResponse(output)
 
+""" 
 def index_actuaciones(request):
     actuacion = get_list_or_404(Actuacion.objects.all())
     output = ', '.join([str(Actuacion.idActuacion) for actuation in actuacion])
@@ -41,3 +81,4 @@ def show_actuacion(request, actuacion_id):
     actuacion = get_object_or_404(Actuacion, pk=actuacion_id)
     output = f'Detalles de la actuación: {actuacion.idActuacion}, Intérprete: {actuacion.idInterprete.nameInterprete}, Festival: {actuacion.idFestival.nombreFestival}'
     return HttpResponse(output)
+ """

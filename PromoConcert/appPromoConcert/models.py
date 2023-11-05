@@ -17,7 +17,9 @@ class Interprete(models.Model):
     nameInterprete = models.TextField()
     infoIntérprete = models.TextField()
 
+""" 
 class Actuacion(models.Model):
     idActuacion = models.AutoField(primary_key=True)
     idInterprete = models.ForeignKey(Interprete, on_delete=models.CASCADE)
     idFestival = models.ForeignKey(Festival, on_delete=models.CASCADE)
+ """
