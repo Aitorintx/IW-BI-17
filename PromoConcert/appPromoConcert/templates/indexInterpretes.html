@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <title>Listado de cantantes/grupos</title>
+    </head>
+    <body>
+        <div id="content">
+	     <h1>Gestor de Interpretes</h1>
+         <h2>Listado de cantantes/grupos musicales</h2>
+         {% if lista_interpretes %}
+             <ul>
+             {% for inte in lista_interpretes %}
+                 <li>
+                     <a href="/PromoConcert/interpretes/{{ inte.idInterprete }}">{{ inte.nameInterprete}}</a>
+                 </li>
+             {% endfor %}
+             </ul>
+         {% else %}
+         <p>No hay cantantes/grupos.</p>
+         {% endif %}
+        </div>
+    </body>
+</html>

@@ -5,7 +5,7 @@ from .models import Promotor, Festival, Interprete, Actuacion
 def index_promotores(request):
     promotores = get_list_or_404(Promotor.objects.all())
     output = ', '.join([promotor.namePromotor for promotor in promotores])
-    return HttpResponse(output)
+    return HttpResponse(request, 'index.html', output)
 
 def show_promotor(request, promotor_id):
     promotor = get_object_or_404(Promotor, pk=promotor_id)
@@ -14,8 +14,8 @@ def show_promotor(request, promotor_id):
     festivales = []
 
     for festival in festivalesPropios:
-        festivalHecho = get_object_or_404(Festival, pk=festival.idFestival)       #Interpretes que aparezcan
-        festivales.append(festivalHecho.nombreFestival)            # Nombres de los intérpretes
+        festivalHecho = get_list_or_404(Festival, pk=festival.idFestival)       #Interpretes que aparezcan
+        festivales.append(festivalHecho.nameFestival)            # Nombres de los intérpretes
 
     output = f'Detalles del promotor: {promotor.idPromotor}, {promotor.namePromotor}, {promotor.infoPromotor} \n Festivales: '
     
@@ -23,12 +23,12 @@ def show_promotor(request, promotor_id):
         for fest in festivales:
             output += '\n' + (fest)
     
-    return HttpResponse(output)
+    return HttpResponse(request, 'promotor.html', output)
 
 def index_festivales(request):
     festivales = get_list_or_404(Festival.objects.all())
     output = ', '.join([festival.nombreFestival for festival in festivales])
-    return HttpResponse(output)
+    return HttpResponse(request, 'indexFestivales.html', output)
 
 def show_festival(request, festival_id):
     festival = get_object_or_404(Festival, pk=festival_id)
@@ -37,8 +37,8 @@ def show_festival(request, festival_id):
     interpretes = []
 
     for actuacion in actuaciones:
-        interprete = get_object_or_404(Interprete, pk=actuacion.idInterprete)       #Interpretes que aparezcan
-        interpretes.append(interprete.nombreInterprete)            # Nombres de los intérpretes
+        interprete = get_list_or_404(Interprete, pk=actuacion.idInterprete)       #Interpretes que aparezcan
+        interpretes.append(interprete.nameInterprete)            # Nombres de los intérpretes
 
     output = f'Detalles del festival: {festival.idFestival}, {festival.nombreFestival}, {festival.infoFestival}, {festival.fecha}, Promotor: {festival.idPromotor.namePromotor}. \n Interpretes: '
 
@@ -46,30 +46,30 @@ def show_festival(request, festival_id):
         for interprete in interpretes:
             output += '\n' + (interprete)
     
-    return HttpResponse(output)
+    return HttpResponse(request, 'festival.html', output)
 
 def index_interpretes(request):
     interpretes = get_list_or_404(Interprete.objects.all())
     output = ', '.join([interprete.nameInterprete for interprete in interpretes])
-    return HttpResponse(output)
+    return HttpResponse(request, 'indexInterpretes.html', output)
 
 def show_interprete(request, interprete_id):
-    interprete = get_object_or_404(Interprete, pk=interprete_id)
+    interprete = get_list_or_404(Interprete, pk=interprete_id)
 
     actuaciones = Actuacion.objects.filter(idInterprete=interprete_id)          # Actuaciones del festival
     festivales = []
 
     for actuacion in actuaciones:
         festival = get_object_or_404(Festival, pk=actuacion.idFestival)       #Interpretes que aparezcan
-        festivales.append(festival.nombreFestival)            # Nombres de los intérpretes
+        festivales.append(festival.nameFestival)            # Nombres de los intérpretes
 
-    output = f'Detalles del intérprete: {interprete.idInterprete}, {interprete.nameInterprete}, {interprete.infoInteprete} \n Actuaciones: {}'
+    output = f'Detalles del intérprete: {interprete.idInterprete}, {interprete.nameInterprete}, {interprete.infoInteprete} \n Actuaciones: '
     
     if festivales:
         for festival in festivales:
             output += '\n' + (festival)
     
-    return HttpResponse(output)
+    return HttpResponse(request, 'interprete.html', output)
 
 """ 
 def index_actuaciones(request):
