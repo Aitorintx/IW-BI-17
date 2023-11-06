@@ -1,6 +1,13 @@
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, get_list_or_404
 from .models import Promotor, Festival, Interprete, Actuacion
+from django.shortcuts import render
+
+#def appPromoConcert_view(request):
+#    # Your view logic goes here
+#    promotores = get_list_or_404(Promotor.objects.all())
+#    output = ', '.join([promotor.namePromotor for promotor in promotores])
+#    return render(request, 'appPromoConcert/template_name.html', output)
 
 def index_promotores(request):
     promotores = get_list_or_404(Promotor.objects.all())

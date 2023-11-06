@@ -1,6 +1,6 @@
 from django.urls import path
 from django.http import HttpResponse
-from .models import Promotor, Festival, Interprete
+from .models import Promotor, Festival, Interprete, Actuacion
 from . import views
 
 urlpatterns = [
@@ -11,6 +11,6 @@ urlpatterns = [
     path('festivales/<int:festival_id>/', views.show_festival, name='festival_detail'), 
     path('interpretes/', views.index_interpretes, name='interpretes'),
     path('interpretes/<int:interprete_id>/', views.show_interprete, name='interprete_detail'), 
-    """ path('actuaciones/', views.index_actuaciones, name='actuaciones'),
-    path('actuaciones/<int:actuacion_id>/', views.show_actuacion, name='actuacion_detail'),  """
+    #""" path('actuaciones/', views.index_actuaciones, name='actuaciones'),
+    #path('actuaciones/<int:actuacion_id>/', views.show_actuacion, name='actuacion_detail'),  """
 ]
