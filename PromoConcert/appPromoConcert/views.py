@@ -17,8 +17,8 @@ def index(request):
 
 def index_promotores(request):
     promotores = get_list_or_404(Promotor.objects.all())
-    output = ', '.join([promotor.namePromotor for promotor in promotores])
-    return HttpResponse(request, 'indexPromotor.html', {'output': output})
+    output = {'lista_promotores': promotores}
+    return render(request, 'indexPromotor.html', output)
 
 def show_promotor(request, promotor_id):
     promotor = get_object_or_404(Promotor, pk=promotor_id)
