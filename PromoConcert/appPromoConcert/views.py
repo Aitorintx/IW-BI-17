@@ -39,10 +39,14 @@ def show_promotor(request, promotor_id):
     return HttpResponse(request, 'promotorDetail.html', output)
 
 def index_festivales(request):
-    festivales = get_list_or_404(Festival.objects.all())
-    output = ', '.join([festival.nombreFestival for festival in festivales])
-    return HttpResponse(request, 'indexFestivales.html', {'output': output})
+    festivales = get_list_or_404(Festival.objects.order_by('nameFestival'))
+    context = {'lista_festivales': festivales }
+    return render(request, 'index.html', context)
 
+    """ festivales = get_list_or_404(Festival.objects.all())
+    output = ', '.join([festival.nombreFestival for festival in festivales])
+    return render(request, 'indexFestivales.html', {'output': output})
+ """
 def show_festival(request, festival_id):
     festival = get_object_or_404(Festival, pk=festival_id)
 

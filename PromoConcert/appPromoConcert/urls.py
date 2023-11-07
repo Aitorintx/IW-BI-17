@@ -4,7 +4,7 @@ from .models import Promotor, Festival, Interprete, Actuacion
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.index_festivales, name='index'),
     #path('promotores/', views.index_promotores, name='promotores'),
     #path('promotores/<int:promotor_id>/', views.show_promotor, name='promotor_detail'), 
     #path('festivales/', views.index_festivales, name='festivales'),
