@@ -9,6 +9,12 @@ from django.shortcuts import render
 #    output = ', '.join([promotor.namePromotor for promotor in promotores])
 #    return render(request, 'appPromoConcert/template_name.html', output)
 
+def index(request):
+	promotores = get_list_or_404(Promotor.objects.order_by('namePromotor'))
+	context = {'lista_promotores': promotores }
+	return HttpResponse(render(request, 'index.html', {'output': context}), content_type='text/html', status=200)
+
+
 def index_promotores(request):
     promotores = get_list_or_404(Promotor.objects.all())
     output = ', '.join([promotor.namePromotor for promotor in promotores])
