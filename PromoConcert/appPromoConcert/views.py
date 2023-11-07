@@ -22,21 +22,22 @@ def index_promotores(request):
 
 def show_promotor(request, promotor_id):
     promotor = get_object_or_404(Promotor, pk=promotor_id)
+    output={'promotor': promotor}
 
-    festivalesPropios = Festival.objects.filter(idPromotor=promotor_id)          # Actuaciones del festival
-    festivales = []
+    #festivalesPropios = Festival.objects.filter(idPromotor=promotor_id)          # Actuaciones del festival
+    #festivales = []
 
-    for festival in festivalesPropios:
-        festivalHecho = get_list_or_404(Festival, pk=festival.idFestival)       #Interpretes que aparezcan
-        festivales.append(festivalHecho.nameFestival)            # Nombres de los intérpretes
+    #for festival in festivalesPropios:
+    #    festivalHecho = get_list_or_404(Festival, pk=festival.idFestival)       #Interpretes que aparezcan
+    #    festivales.append(festivalHecho.nameFestival)            # Nombres de los intérpretes
 
-    output = f'Detalles del promotor: {promotor.idPromotor}, {promotor.namePromotor}, {promotor.infoPromotor} \n Festivales: '
+    #output = f'Detalles del promotor: {promotor.idPromotor}, {promotor.namePromotor}, {promotor.infoPromotor} \n Festivales: '
     
-    if festivales:
-        for fest in festivales:
-            output += '\n' + (fest)
+    #if festivales:
+    #    for fest in festivales:
+    #        output += '\n' + (fest)
     
-    return HttpResponse(request, 'promotorDetail.html', output)
+    return render(request, 'promotorDetail.html', output)
 
 def index_festivales(request):
     festivales = get_list_or_404(Festival.objects.order_by('nameFestival'))
