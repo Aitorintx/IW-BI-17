@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 
-{% block titulo %} Detalle del departamento {% endblock %}
+{% block titulo %} Detalle del interprete {% endblock %}
 
 {% block contenido %}
+
     <h2>Datos del interprete</h2>
     {% if interprete %}
+
         <ul>
             <li>
                 {{ interprete.nameInterprete}}
@@ -12,26 +14,25 @@
             <li>
                 {{ interprete.infoInterprete}}
             </li>
-            <li>
-                <!-- REVISAR -->
-                {{ festival.nameFestival}}      
-            </li>
         </ul>
-        <h2>Festivales en los que participa {{ interprete.nameInterprete }}</h2>
-        {% if festivales %}
+        
+        <h2>Festivales a los que acudirá {{ interprete.nameInterprete }}</h2>
+        {% if interprete.festivales.all %}
             <ul>
-                {% for fest in festivales %}
+                {% for festival in interprete.festivales.all %}
                     <li>
-                        {{ fest.nameFestival }}
+                        {{ festival.nombreFestival }}
                     </li>
                 {% endfor %}
             </ul>
         {% else %}
-            <p>Este intérprete todavía no ha sido confirmado en ningún festival.</p>
+            <p>Este cantante no ha confirmado ningún festival todavía.</p>
         {% endif %}
+
     {% else %}
-        <p>No existe este intérprete.</p>
+        <p>No existe este interprete.</p>
     {% endif %}
 
 {% endblock %}
+
 
