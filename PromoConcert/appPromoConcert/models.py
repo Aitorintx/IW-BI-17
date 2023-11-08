@@ -10,7 +10,7 @@ class Festival(models.Model):
     nombreFestival = models.TextField()
     infoFestival = models.TextField()
     fecha = models.TextField()
-    idPromotor = models.ForeignKey(Promotor, on_delete=models.CASCADE)
+    idPromotor = models.ForeignKey(Promotor, on_delete=models.CASCADE, related_name='festivales')
 
 class Interprete(models.Model):
     idInterprete = models.AutoField(primary_key=True)
@@ -19,26 +19,6 @@ class Interprete(models.Model):
 
 class Actuacion(models.Model):
     idActuacion = models.AutoField(primary_key=True)
-    idInterprete = models.ForeignKey(Interprete, on_delete=models.CASCADE)
-    idFestival = models.ForeignKey(Festival, on_delete=models.CASCADE)
+    idInterprete = models.ForeignKey(Interprete, on_delete=models.CASCADE, related_name='actuaciones')
+    idFestival = models.ForeignKey(Festival, on_delete=models.CASCADE, related_name='actuaciones')
 
-# 
-#class Departamento(models.Model):
-#    # No es necesario crear un campo para la Primary Key, Django creará automáticamente un IntegerField.
-#    nombre = models.CharField(max_length=50)
-#    telefono = models.IntegerField()
-#
-#class Habilidad(models.Model):
-#    # No es necesario crear un campo para la Primary Key, Django creará automáticamente un IntegerField.
-#    nombre = models.CharField(max_length=50)
-# 
-#class Empleado(models.Model):
-#    # Campo para la relación one-to-many (un empleado pertenece a un departamento)
-#    departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)
-#    # Campo para la relación many-to-many (un empleado tiene varias habilidades)
-#    habilidades = models.ManyToManyField(Habilidad)
-#    nombre = models.CharField(max_length=40)
-#    fecha_nacimiento = models.DateField()
-#    # Es posible indicar un valor por defecto mediante 'default'
-#    antiguedad = models.IntegerField(default=0)
-#    # Para permitir propiedades con valor null, añadiremos las opciones null=True, blank=True.       	

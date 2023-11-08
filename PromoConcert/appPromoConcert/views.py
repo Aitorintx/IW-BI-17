@@ -17,33 +17,42 @@ def index(request):
 
 def index_promotores(request):
     promotores = get_list_or_404(Promotor.objects.all())
-    output = ', '.join([promotor.namePromotor for promotor in promotores])
-    return HttpResponse(request, 'indexPromotor.html', {'output': output})
+    output = {'lista_promotores': promotores}
+    return render(request, 'indexPromotor.html', output)
 
-def show_promotor(request, promotor_id):
+
+def show_promotores(request, promotor_id):
     promotor = get_object_or_404(Promotor, pk=promotor_id)
+    contexto = {'promotor' : promotor}
+    return render(request, 'promotorDetail.html', contexto)
 
-    festivalesPropios = Festival.objects.filter(idPromotor=promotor_id)          # Actuaciones del festival
-    festivales = []
-
-    for festival in festivalesPropios:
-        festivalHecho = get_list_or_404(Festival, pk=festival.idFestival)       #Interpretes que aparezcan
-        festivales.append(festivalHecho.nameFestival)            # Nombres de los intérpretes
-
-    output = f'Detalles del promotor: {promotor.idPromotor}, {promotor.namePromotor}, {promotor.infoPromotor} \n Festivales: '
-    
-    if festivales:
-        for fest in festivales:
-            output += '\n' + (fest)
-    
-    return HttpResponse(request, 'promotorDetail.html', output)
 
 def index_festivales(request):
     festivales = get_list_or_404(Festival.objects.all())
-    output = ', '.join([festival.nombreFestival for festival in festivales])
-    return HttpResponse(request, 'indexFestivales.html', {'output': output})
+    output = {'lista_festivales': festivales}
+    return render(request, 'indexFestivales.html', output)
 
-def show_festival(request, festival_id):
+
+def show_festivales(request, festival_id):
+    festival = get_object_or_404(Festival, pk=festival_id)
+    contexto = {'festival' : festival}
+    return render(request, 'festivalDetail.html', contexto)
+
+
+def index_interpretes(request):
+    interpretes = get_list_or_404(Interprete.objects.all())
+    output = {'lista_interpretes': interpretes}
+    return render(request, 'indexInterpretes.html', output)
+
+
+def show_interpretes(request, interprete_id):
+    interprete = get_object_or_404(Festival, pk=interprete_id)
+    contexto = {'interprete' : interprete}
+    return render(request, 'interpreteDetail.html', contexto)
+
+
+
+""" def show_festival(request, festival_id):
     festival = get_object_or_404(Festival, pk=festival_id)
 
     actuaciones = Actuacion.objects.filter(idFestival=festival_id)          # Actuaciones del festival
@@ -82,7 +91,7 @@ def show_interprete(request, interprete_id):
         for festival in festivales:
             output += '\n' + (festival)
     
-    return HttpResponse(request, 'interpreteDetail.html', output)
+    return HttpResponse(request, 'interpreteDetail.html', output) """
 
 """ 
 def index_actuaciones(request):

@@ -4,11 +4,18 @@
 
 {% block contenido %}
 
-
-<div id="content">
- <h1>Gestor de PromoConcert</h1>
-</div>
-
+<h1>Lista</h1>
+ {% if lista_festivales %}
+        <ul>
+            {% for fest in lista_festivales %}
+            <li>
+                <a href="/PromoConcert/{{ fest.idFestival }}">{{ fest.nameFestival}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay festivales musicales.</p>
+    {% endif %}
 
 
 {% endblock %}

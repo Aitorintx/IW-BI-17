@@ -1,33 +1,37 @@
 {% extends "base.html" %}
 
-{% block titulo %} Detalle del departamento {% endblock %}
+{% block titulo %} Detalle del promotor {% endblock %}
 
 {% block contenido %}
+
     <h2>Datos del promotor</h2>
-        {% if promotor %}
+    {% if promotor %}
+
+        <ul>
+            <li>
+                {{ promotor.namePromotor}}
+            </li>
+            <li>
+                {{ promotor.infoPromotor}}
+            </li>
+        </ul>
+        
+        <h2>Festivales organizados por {{ promotor.namePromotor }}</h2>
+        {% if promotor.festivales.all %}
             <ul>
-                <li>
-                    {{ promotor.namePromotor}}
-                </li>
-                <li>
-                    {{ promotor.infoPromotor}}
-                </li>
+                {% for festival in promotor.festivales.all %}
+                    <li>
+                        {{ festival.nombreFestival }}
+                    </li>
+                {% endfor %}
             </ul>
-            <h2>Festivales organizados por {{ promotor.namePromotor }}</h2>
-            {% if festivales %}
-                <ul>
-                    {% for festival in festivales %}
-                        <li>
-                            {{ festival.nameFestival }}
-                        </li>
-                    {% endfor %}
-                </ul>
-            {% else %}
-                <p>Este promotor no ha organizado ningún festival.</p>
-            {% endif %}
         {% else %}
-            <p>No existe este promotor.</p>
+            <p>Este festival no tiene intérpretes confirmados todavía.</p>
         {% endif %}
+
+    {% else %}
+        <p>No existe este promotor.</p>
+    {% endif %}
 
 {% endblock %}
 
