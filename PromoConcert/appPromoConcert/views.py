@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, get_list_or_404
-from .models import Promotor, Festival, Interprete, Actuacion
+from .models import Promotor, Festival, Interprete
 from django.shortcuts import render
 
 #def appPromoConcert_view(request):

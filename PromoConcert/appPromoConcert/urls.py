@@ -1,6 +1,6 @@
 from django.urls import path
 from django.http import HttpResponse
-from .models import Promotor, Festival, Interprete, Actuacion
+from .models import Promotor, Festival, Interprete
 from . import views
 
 urlpatterns = [

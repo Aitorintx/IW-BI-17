@@ -15,10 +15,8 @@ class Festival(models.Model):
 class Interprete(models.Model):
     idInterprete = models.AutoField(primary_key=True)
     nameInterprete = models.TextField()
-    infoIntérprete = models.TextField()
+    infoInterprete = models.TextField()
+    festivales=models.ManyToManyField(Festival)
 
-class Actuacion(models.Model):
-    idActuacion = models.AutoField(primary_key=True)
-    idInterprete = models.ForeignKey(Interprete, on_delete=models.CASCADE, related_name='actuaciones')
-    idFestival = models.ForeignKey(Festival, on_delete=models.CASCADE, related_name='actuaciones')
+
 
