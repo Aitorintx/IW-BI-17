@@ -21,7 +21,7 @@
             <ul>
                 {% for festival in interprete.festivales.all %}
                     <li>
-                        {{ festival.nombreFestival }}
+                        <a href="/festivales/{{ festival.idFestival }}">{{ festival.nombreFestival}}</a>
                     </li>
                 {% endfor %}
             </ul>

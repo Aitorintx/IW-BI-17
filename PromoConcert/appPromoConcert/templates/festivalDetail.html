@@ -21,7 +21,7 @@
             <ul>
                 {% for inte in festival.interprete.all %}
                     <li>
-                        {{ interprete.nameInterprete }}
+                        <a href="/interpretes/{{ interprete.idInterprete }}">{{ interprete.nameInterprete}}</a>
                     </li>
                 {% endfor %}
             </ul>

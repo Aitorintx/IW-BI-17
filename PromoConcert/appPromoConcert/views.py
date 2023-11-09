@@ -46,7 +46,7 @@ def index_interpretes(request):
 
 
 def show_interpretes(request, interprete_id):
-    interprete = get_object_or_404(Festival, pk=interprete_id)
+    interprete = get_object_or_404(Interprete, pk=interprete_id)
     contexto = {'interprete' : interprete}
     return render(request, 'interpreteDetail.html', contexto)
 
