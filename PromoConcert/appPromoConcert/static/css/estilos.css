@@ -8,8 +8,17 @@ header{
 }
 
 nav ul {
-    list-style-type: none; /* Quitamos las viñetas de la lista */
+    list-style: none;
+    display: flex;
 }
-nav li {
-    display: inline; /* Ítems del menú en una línea horizontal */ 
+nav ul li{
+    margin: 0 30px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color:#fff;
+    font-size: 15px;
+    padding: 5px 3px;
+    border-radius: 2px;
 }
