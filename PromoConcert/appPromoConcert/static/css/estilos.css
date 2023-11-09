@@ -4,7 +4,7 @@ h1 {
 }
 
 header{
-    background-color: rgb(240, 161, 240)
+    background-color: rgb(244, 173, 244)
 }
 
 nav ul {
@@ -21,4 +21,12 @@ nav ul li a{
     font-size: 15px;
     padding: 5px 3px;
     border-radius: 2px;
+}
+
+body{
+    margin-top: 100px;
+	margin-left: 200px;
+	padding: 5px;
+    max-width: 900px;
+    font-family: cursive;
 }
