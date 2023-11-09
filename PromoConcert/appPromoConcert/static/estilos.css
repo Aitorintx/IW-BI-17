@@ -1,0 +1,15 @@
+h1 {
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+header{
+    background-color: rgb(240, 161, 240)
+}
+
+nav ul {
+    list-style-type: none; /* Quitamos las viñetas de la lista */
+}
+nav li {
+    display: inline; /* Ítems del menú en una línea horizontal */ 
+}
