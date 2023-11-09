@@ -8,6 +8,7 @@
         <ul>
             {% for pro in lista_promotores %}
                 <li>
+                    <!-- <img src="{% static 'imagenes/Live Nation.png' %}" alt="Mi Imagen"> -->
                     <a href="/promotores/{{ pro.idPromotor }}">{{ pro.namePromotor}}</a>
                 </li>
             {% endfor %}
