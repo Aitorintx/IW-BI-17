@@ -5,10 +5,18 @@
         <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
         <title>{% block titulo %}Gestor de Promo Concerts{% endblock %}</title>
     </head>
+
+    <header>
+        <h1>Gestor de PromoConcert</h1>
+        <nav>
+            <ul>
+                <li><a href="/promotores/">Promotoras</a></li>
+                <li><a href="/festivales/">Festivales</a></li>
+                <li><a href="/interpretes/">Interpretes</a></li>
+            </ul>
+        </nav>
+    </header>
     <body>
-        <div id="content">
-	     <h1>Gestor de PromoConcert</h1>
-            {% block contenido %}{% endblock %}
-        </div>
+        {% block contenido %}{% endblock %}
     </body>
 </html>
