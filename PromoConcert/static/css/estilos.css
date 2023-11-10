@@ -1,26 +1,28 @@
 h1 {
-    color: rgb(255, 255, 255);
+    color: rgb(12, 12, 12);
     text-align: center;
+}
+header{
+    margin-bottom: 50px;
 }
 
 h2{
     text-align: center;
 }
-header{
-    background-color: rgb(244, 173, 244)
-}
+
+
 
 nav ul {
     list-style: none;
     display: flex;
 }
 nav ul li{
-    margin: 0 30px;
+    margin: 0 42px;
 }
 
 nav ul li a{
     text-decoration: none;
-    color:#fff;
+    color:#090909;
     font-size: 15px;
     padding: 5px 3px;
     border-radius: 2px;
@@ -32,7 +34,15 @@ body{
     margin-right: 100px;
 	padding: 5px;
     max-width: 900px;
-    background-color: blanchedalmond;
+    background-color: rgb(254, 194, 104); 
+}
+.contenedor{
+    max-width: 1000px;
+    background-color:blanchedalmond;
+    border-radius: 30px;
+    padding: 50px;
+    color: #000000;
+    text-align: center;
 }
 
 .promotores-grid {

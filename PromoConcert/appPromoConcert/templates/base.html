@@ -8,17 +8,19 @@
         <title>{% block titulo %}Gestor de Promo Concerts{% endblock %}</title>
     </head>
 <body>
-    <header>
-        <h1>Gestor de PromoConcert</h1>
-        <nav>
-            <ul>
-                <li><a href="/">Inicio</a></li>
-                <li><a href="/promotores/">Promotoras</a></li>
-                <li><a href="/festivales/">Festivales</a></li>
-                <li><a href="/interpretes/">Interpretes</a></li>
-            </ul>
-        </nav>
-    </header>
-        {% block contenido %}{% endblock %}
+    <section class = "contenedor">
+        <header>
+            <h1>Gestor de PromoConcert</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/promotores/">Promotoras</a></li>
+                    <li><a href="/festivales/">Festivales</a></li>
+                    <li><a href="/interpretes/">Interpretes</a></li>
+                </ul>
+            </nav>
+        </header>
+            {% block contenido %}{% endblock %}
+    </section>
 </body>
 </html>
