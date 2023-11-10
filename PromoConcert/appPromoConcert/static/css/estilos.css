@@ -37,8 +37,8 @@ body{
 
 .promotores-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px; 
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
 }
 
 .promotor-item {
@@ -46,14 +46,10 @@ body{
     text-align: center;
 }
 
-.promotor-item a {
-    text-decoration: none;
-    color: #333; 
-    display: block;
-}
-
 .promotor-item img {
     max-width: 150px;
     height: auto;
     border-radius: 8px; 
 }
+
+

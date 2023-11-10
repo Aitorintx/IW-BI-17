@@ -34,3 +34,20 @@ body{
     max-width: 900px;
     background-color: blanchedalmond;
 }
+
+.promotores-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+
+.promotor-item {
+    list-style: none;
+    text-align: center;
+}
+
+.promotor-item img {
+    max-width: 150px;
+    height: auto;
+    border-radius: 8px; 
+}

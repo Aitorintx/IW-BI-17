@@ -6,16 +6,16 @@
     <h2>Listado de promotores musicales</h2>
     {% if lista_promotores %}
         <div class="promotores-grid">
-            <ul>
-                {% for pro in lista_promotores %}
-                    <li class="promotor-item">
-                        <a href="/promotores/{{ pro.idPromotor }}">{{ pro.namePromotor}}</a>
+            {% for pro in lista_promotores %}
+                <div class="promotor-item">
+                    <a href="/promotores/{{ pro.idPromotor }}">
                         {% load static %}
                         <img alt="{{ pro.foto.name }}" src="{% static pro.foto.name %}" />
-                    </li>
-                {% endfor %}
-            </ul>
+                    </a>
+                </div>
+            {% endfor %}
         </div>
+    
 {% else %}
         <p>No hay promotores musicales.</p>
     {% endif %}
