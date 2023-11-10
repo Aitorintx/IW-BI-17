@@ -35,6 +35,7 @@ body{
 	padding: 5px;
     max-width: 900px;
     background-color: rgb(254, 194, 104); 
+    text-align: left;
 }
 .contenedor{
     max-width: 1000px;
@@ -42,7 +43,6 @@ body{
     border-radius: 30px;
     padding: 50px;
     color: #000000;
-    text-align: center;
 }
 
 .promotores-grid {
@@ -60,4 +60,16 @@ body{
     max-width: 150px;
     height: auto;
     border-radius: 8px; 
+}
+
+.contenedor ul{
+    list-style: none;
+}
+
+.contenedor ul li a{
+    text-align: left;
+}
+.contenedor ul li a:hover{
+    text-decoration: underline;
+    color: rgb(255, 0, 183);
 }
