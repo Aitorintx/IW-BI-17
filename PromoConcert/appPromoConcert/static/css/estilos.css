@@ -26,6 +26,7 @@ nav ul li a{
     border-radius: 2px;
 }
 
+/**
 body{
     margin-top: 10px;
 	margin-left: 100px;
@@ -33,8 +34,11 @@ body{
 	padding: 5px;
     max-width: 900px;
     background-color: blanchedalmond;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
+**/
 .promotores-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
