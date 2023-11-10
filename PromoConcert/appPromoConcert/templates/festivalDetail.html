@@ -3,31 +3,26 @@
 {% block titulo %} Detalle del festival {% endblock %}
 
 {% block contenido %}
-
-    <h2>Datos del festival</h2>
     {% if festival %}
-
-        <ul>
-            <li>
-                {{ festival.nombreFestival}}
-            </li>
-            <li>
-                {{ festival.infoFestival}}
-            </li>
-        </ul>
-        
-        <h2>Artistas que acudirán a {{ festival.nombreFestival }}</h2>
-        {% if festival.interprete_set.all %}
+        <h2>{{ festival.nombreFestival}}</h2>
             <ul>
-                {% for interprete in festival.interprete_set.all %}
-                    <li>
-                        <a href="/interpretes/{{ interprete.idInterprete }}">{{ interprete.nameInterprete }}</a>
-                    </li>
-                {% endfor %}
+                <li>
+                    {{ festival.infoFestival}}
+                </li>
             </ul>
-        {% else %}
-            <p>Este festival no ha confirmado ningún interprete todavía todavía.</p>
-        {% endif %}
+            
+            <h2>Artistas que acudirán a {{ festival.nombreFestival }}</h2>
+            {% if festival.interprete_set.all %}
+                <ul>
+                    {% for interprete in festival.interprete_set.all %}
+                        <li>
+                            <a href="/interpretes/{{ interprete.idInterprete }}">{{ interprete.nameInterprete }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Este festival no ha confirmado ningún interprete todavía todavía.</p>
+            {% endif %}
 
     {% else %}
         <p>No existe este festival.</p>

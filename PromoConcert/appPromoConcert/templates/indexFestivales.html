@@ -5,13 +5,13 @@
 {% block contenido %}
     <h2>Listado de festivales</h2>
     {% if lista_festivales %}
-        <ul>
+        <div class="festivales-grid">
             {% for fest in lista_festivales %}
-            <li>
-                <a href="/festivales/{{ fest.idFestival }}">{{ fest.nombreFestival}}</a>
-            </li>
+                <div class="festivales-item">
+                    <a href="/festivales/{{ fest.idFestival }}">{{ fest.nombreFestival}}</a>
+                </div>
             {% endfor %}
-        </ul>
+        </div>
     {% else %}
         <p>No hay festivales musicales.</p>
     {% endif %}

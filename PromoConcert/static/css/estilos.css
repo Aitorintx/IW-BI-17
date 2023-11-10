@@ -73,3 +73,33 @@ body{
     text-decoration: underline;
     color: rgb(255, 0, 183);
 }
+
+.festivales-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+.festivales-item a{
+    list-style: none;
+    text-align: left;
+    color:#c300bd;
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+}
+
+.interpretes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+
+.interpretes-item a{
+    list-style: none;
+    text-align: left;
+    color:#c300bd;
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+}

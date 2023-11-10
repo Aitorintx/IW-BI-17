@@ -3,31 +3,27 @@
 {% block titulo %} Detalle del interprete {% endblock %}
 
 {% block contenido %}
-
-    <h2>Datos del interprete</h2>
     {% if interprete %}
+        <h2>{{ interprete.nameInterprete}}</h2>
 
-        <ul>
-            <li>
-                {{ interprete.nameInterprete}}
-            </li>
-            <li>
-                {{ interprete.infoInterprete}}
-            </li>
-        </ul>
-        
-        <h2>Festivales a los que acudirá {{ interprete.nameInterprete }}</h2>
-        {% if interprete.festivales.all %}
             <ul>
-                {% for festival in interprete.festivales.all %}
-                    <li>
-                        <a href="/festivales/{{ festival.idFestival }}">{{ festival.nombreFestival}}</a>
-                    </li>
-                {% endfor %}
+                <li>
+                    {{ interprete.infoInterprete}}
+                </li>
             </ul>
-        {% else %}
-            <p>Este cantante no ha confirmado ningún festival todavía.</p>
-        {% endif %}
+            
+            <h2>Festivales a los que acudirá {{ interprete.nameInterprete }}</h2>
+            {% if interprete.festivales.all %}
+                <ul>
+                    {% for festival in interprete.festivales.all %}
+                        <li>
+                            <a href="/festivales/{{ festival.idFestival }}">{{ festival.nombreFestival}}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Este cantante no ha confirmado ningún festival todavía.</p>
+            {% endif %}
 
     {% else %}
         <p>No existe este interprete.</p>

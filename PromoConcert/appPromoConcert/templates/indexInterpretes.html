@@ -3,15 +3,15 @@
 {% block titulo %}Listado de departamentos{% endblock %}
 
 {% block contenido %}
-    <h2>Listado de interpretes</h2>
     {% if lista_interpretes %}
-        <ul>
-            {% for inte in lista_interpretes %}
-            <li>
-                <a href="/interpretes/{{ inte.idInterprete }}">{{ inte.nameInterprete}}</a>
-            </li>
-            {% endfor %}
-        </ul>
+        <h2>Listado de interpretes</h2>
+            <div class="interpretes-grid">
+                {% for inte in lista_interpretes %}
+                    <div class=".interpretes-item ">
+                        <a href="/interpretes/{{ inte.idInterprete }}">{{ inte.nameInterprete}}</a>
+                    </div>
+                {% endfor %}
+            </div>
     {% else %}
         <p>No hay cantantes/grupos.</p>
     {% endif %}
