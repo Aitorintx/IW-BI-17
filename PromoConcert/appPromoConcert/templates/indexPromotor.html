@@ -5,14 +5,18 @@
 {% block contenido %}
     <h2>Listado de promotores musicales</h2>
     {% if lista_promotores %}
-        <ul>
-            {% for pro in lista_promotores %}
-                <li>
-                    <a href="/promotores/{{ pro.idPromotor }}">{{ pro.namePromotor}}</a>
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
+        <div class="promotores-grid">
+            <ul>
+                {% for pro in lista_promotores %}
+                    <li class="promotor-item">
+                        <a href="/promotores/{{ pro.idPromotor }}">{{ pro.namePromotor}}</a>
+                        {% load static %}
+                        <img alt="{{ pro.foto.name }}" src="{% static pro.foto.name %}" />
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+{% else %}
         <p>No hay promotores musicales.</p>
     {% endif %}
 {% endblock %}

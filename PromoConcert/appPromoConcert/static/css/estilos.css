@@ -34,3 +34,26 @@ body{
     max-width: 900px;
     background-color: blanchedalmond;
 }
+
+.promotores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px; 
+}
+
+.promotor-item {
+    list-style: none;
+    text-align: center;
+}
+
+.promotor-item a {
+    text-decoration: none;
+    color: #333; 
+    display: block;
+}
+
+.promotor-item img {
+    max-width: 150px;
+    height: auto;
+    border-radius: 8px; 
+}
