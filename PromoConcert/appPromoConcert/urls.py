@@ -1,6 +1,6 @@
 from django.urls import path
-from django.http import HttpResponse
-from .models import Promotor, Festival, Interprete
+from django.conf import settings
+from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
@@ -14,3 +14,5 @@ urlpatterns = [
     #""" path('actuaciones/', views.index_actuaciones, name='actuaciones'),
     #path('actuaciones/<int:actuacion_id>/', views.show_actuacion, name='actuacion_detail'),  """
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
