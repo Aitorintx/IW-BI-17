@@ -6,18 +6,21 @@ class Promotor(models.Model):
     infoPromotor = models.TextField()
     foto = models.ImageField(upload_to='img',blank=True,null=True,verbose_name='Image')
 
+class Interprete(models.Model):
+    idInterprete = models.AutoField(primary_key=True)
+    nameInterprete = models.TextField()
+    infoInterprete = models.TextField()
+
 class Festival(models.Model):
     idFestival = models.AutoField(primary_key=True)
     nombreFestival = models.TextField()
     infoFestival = models.TextField()
     fecha = models.TextField()
-    idPromotor = models.ForeignKey(Promotor, on_delete=models.CASCADE, related_name='festivales')
+    promotor = models.ForeignKey(Promotor, on_delete=models.CASCADE, related_name='festivales')
+    interpretes=models.ManyToManyField(Interprete)
 
-class Interprete(models.Model):
-    idInterprete = models.AutoField(primary_key=True)
-    nameInterprete = models.TextField()
-    infoInterprete = models.TextField()
-    festivales=models.ManyToManyField(Festival)
+
+    
 
 
 
