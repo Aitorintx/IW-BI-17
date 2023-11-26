@@ -11,8 +11,8 @@ urlpatterns = [
     path('festivales/<int:festival_id>/', views.show_festivales, name='festivalDetail'), 
     path('interpretes/', views.index_interpretes, name='interpretes'),
     path('interpretes/<int:interprete_id>/', views.show_interpretes, name='interpreteDetail'), 
-    #""" path('actuaciones/', views.index_actuaciones, name='actuaciones'),
-    #path('actuaciones/<int:actuacion_id>/', views.show_actuacion, name='actuacion_detail'),  """
+    path('agregar_interprete/', views.add_interprete, name='addInterprete'),
 ]
+
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

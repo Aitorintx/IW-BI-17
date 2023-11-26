@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Agregar Intérprete</title>
+        <link rel="stylesheet" href="{% static 'css/formularioStyle.css' %}">
+    </head>
+
+    <div class="contenedor">
+
+        <body>
+            <header>
+                <h1>Gestor de PromoConcert</h1>
+                <nav>
+                    <ul>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/promotores/">Promotoras</a></li>
+                        <li><a href="/festivales/">Festivales</a></li>
+                        <li><a href="/interpretes/">Interpretes</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <h2>Agregar Intérprete</h2>
+            <form method="post" action="">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <fieldset class="interprete">
+                    <legend>Datos del intérpete</legend>
+                    <p>Nombre: <input type="text"></p>
+                    <textarea name="info" rows="6" cols="50" placeholder="Información"></textarea>
+                </fieldset>
+
+                <a href="index.html" class="btn">Guardar</a>
+            </form>
+        </body>
+
+    </div>
+
+</html>
+
+
