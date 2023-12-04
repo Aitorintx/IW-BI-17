@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %} 
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <title>Agregar Festival</title>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <h1>Gestor de PromoConcert</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/promotores/">Promotoras</a></li>
+                    <li><a href="/festivales/">Festivales</a></li>
+                    <li><a href="/interpretes/">Interpretes</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <h2>Agregar Festival</h2>
+        <form method="post" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button type="submit" class="btn">Guardar</button>
+        </form>
+    </div>
+</body>
+
+</html>

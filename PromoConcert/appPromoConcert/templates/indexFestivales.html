@@ -7,12 +7,20 @@
     {% if lista_festivales %}
         <div class="festivales-grid">
             {% for fest in lista_festivales %}
-                <div class="festivales-item">
-                    <a href="/festivales/{{ fest.idFestival }}">{{ fest.nombreFestival}}</a>
-                </div>
+            <div class="festivales-item">
+                <a href="/festivales/{{ fest.idFestival }}">{{ fest.nombreFestival}}</a>
+            </div>
             {% endfor %}
+
+            <div>
+                <li><a href="/formularioFestival/">Añadir festiva</a></li>
+            </div>
         </div>
     {% else %}
         <p>No hay festivales musicales.</p>
+
+        <div>
+            <li><a href="/formularioFestival/">Añadir festival</a></li>
+        </div>
     {% endif %}
 {% endblock %}

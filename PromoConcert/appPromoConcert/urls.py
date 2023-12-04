@@ -11,7 +11,8 @@ urlpatterns = [
     path('festivales/<int:festival_id>/', views.show_festivales, name='festivalDetail'), 
     path('interpretes/', views.index_interpretes, name='interpretes'),
     path('interpretes/<int:interprete_id>/', views.show_interpretes, name='interpreteDetail'), 
-    path('agregar_interprete/', views.add_interprete, name='addInterprete'),
+    path('formularioInterprete/', views.add_interprete, name='addInterprete'),
+    path('formularioFestival/', views.add_festival, name='addFestival'),
 ]
 
 if settings.DEBUG:

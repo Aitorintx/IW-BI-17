@@ -2,13 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, get_list_or_404
 from .models import Promotor, Festival, Interprete
 from django.shortcuts import render, redirect
-from .forms import InterpreteForm
-
-#def appPromoConcert_view(request):
-#    # Your view logic goes here
-#    promotores = get_list_or_404(Promotor.objects.all())
-#    output = ', '.join([promotor.namePromotor for promotor in promotores])
-#    return render(request, 'appPromoConcert/template_name.html', output)
+from .forms import InterpreteForm, FestivalForm
 
 def index(request):
 	promotores = get_list_or_404(Promotor.objects.order_by('namePromotor'))
@@ -57,7 +51,19 @@ def add_interprete(request):
         form = InterpreteForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('index_interpretes')  # Reemplaza 'nombre_de_tu_vista' con el nombre de tu vista de detalle o lista de intérpretes
+            return redirect('indexInterpretes') 
     else:
         form = InterpreteForm()
-    return render(request, 'formulario_interprete.html', {'form': form})
+    return render(request, 'formularioInterprete.html', {'form': form})
+
+def add_festival(request):
+    if request.method == 'POST':
+        form = FestivalForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('indexFestivales')
+    else:
+        form = FestivalForm()
+
+    return render(request, 'formularioFestival.html', {'form': form})
+

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="es">
+{% load static %} 
+<html lang="en">
 
     <head>
-        <meta charset="utf-8">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
         <title>Agregar Intérprete</title>
-        <link rel="stylesheet" href="{% static 'css/formularioStyle.css' %}">
+        
     </head>
 
     <div class="contenedor">
@@ -27,13 +29,7 @@
                 {% csrf_token %}
                 {{ form.as_p }}
 
-                <fieldset class="interprete">
-                    <legend>Datos del intérpete</legend>
-                    <p>Nombre: <input type="text"></p>
-                    <textarea name="info" rows="6" cols="50" placeholder="Información"></textarea>
-                </fieldset>
-
-                <a href="index.html" class="btn">Guardar</a>
+                <button type="submit" class="btn">Guardar</button>
             </form>
         </body>
 
