@@ -4,9 +4,9 @@
 
 {% block contenido %}
     <h2>Listado de promotores musicales</h2>
-    {% if lista_promotores %}
+    {% if object_list %}
         <div class="promotores-grid">
-            {% for pro in lista_promotores %}
+            {% for pro in object_list %}
                 <div class="promotor-item">
                     <a href="/promotores/{{ pro.idPromotor }}">
                         {% load static %}

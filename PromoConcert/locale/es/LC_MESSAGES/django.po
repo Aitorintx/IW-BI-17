@@ -18,9 +18,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 #: PromoConcert/settings.py:77
-msgid "English"
-msgstr ""
+msggid "Welcome to Promo Concert!"
+msgstr "¡Bienvenidos a Promo Concert!"
 
 #: PromoConcert/settings.py:78
-msgid "Spanish"
-msgstr ""
+msgid "We are an association dedicated to offering the most complete and up-to-date information about the most notable festivals and concerts of the moment. On our website, you will find a wide variety of events classified by the main promoters music industry, such as Live Nation, AEG Live, OCESA CIE and Evenko. Besides, we give you detailed details about the talented performers participating in these events, whether soloists or groups, without distinguishing between them."
+msgstr "Somos una asociación dedicada a ofrecer la información más completa y actualizada sobre los festivales y conciertos más destacados del momento. En nuestro sitio web, encontrarás una amplia variedad de eventos clasificados por los principales promotores musicales de la industria, tales como Live Nation, AEG Live, OCESA CIE y Evenko. Además, te brindamos detalles detallados sobre los talentosos intérpretes que participan en estos eventos, ya sean solistas o grupos, sin distinguir entre ellos."
