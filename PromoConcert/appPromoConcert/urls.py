@@ -12,6 +12,8 @@ urlpatterns = [
     path('interpretes/<int:interprete_id>/', views.show_interpretes, name='interpreteDetail'), 
     path('formularioInterprete/', views.add_interprete, name='addInterprete'),
     path('formularioFestival/', views.add_festival, name='addFestival'),
+    path('loginF/', views.loginF, name='loginF'),
+    path('loginI/', views.loginI, name='loginI'),
 ]
 
 

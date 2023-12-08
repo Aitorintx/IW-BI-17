@@ -68,6 +68,13 @@ def add_festival(request):
 
     return render(request, 'formularioFestival.html', {'form': form})
 
+def loginF(request):
+    return render(request, 'loginF.html')
+
+
+def loginI(request):
+    return render(request, 'loginI.html')
+
 
 class PromotoresList(ListView):
     model = Promotor
