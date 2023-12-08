@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Agenda">
+    <meta name="author" content="Los Promo">
+
+    <title>Agenda PromoConcert</title>
+
+    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/freelancer.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Cambiar navegación</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top">AgendaPromoConcert</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#contactos">Contactos</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#nuevo">Añadir contacto</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#about">Acerca de...</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-text">
+                        <span class="name">AgendaPromoConcert</span>
+                        <hr class="star-light">
+                        <span class="skills">Agenda Para Interesados en PromoConcert</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contactos Grid Section -->
+    <section id="contactos" v-cloak>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Contactos interesados</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row" v-for="contact in contacts">
+                <div class="col-xs-4">
+                    <h4>{{ contact.name }}</h4>
+                </div>
+                <div class="col-xs-4">
+                    <h4>{{ contact.email }}</h4>
+                </div>
+                <div class="col-xs-3">
+                    <h4>{{ contact.phone }}</h4>
+                </div>
+                <div class="col-xs-3">
+                    <h4>{{ contact.agencia }}</h4>
+                </div>
+                <div class="col-xs-1">
+                    <button class="btn btn-danger btn-sm" @click="removeContact(contact)"><span class="glyphicon glyphicon-remove"></span></button>
+                </div>
+            </div>
+            <div class="row" v-if="contacts.length === 0">
+                <div class="col-xs-12">
+                    <p>No se ha encontrado ningún contacto.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Añadir nuevo Section -->
+    <section id="nuevo">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Añadir contacto interesado</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <form name="sentMessage" id="contactForm" @submit.prevent="addContact" novalidate>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Nombre</label>
+                                <input type="text" class="form-control" placeholder="Nombre" v-model="newContact.name">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Email</label>
+                                <input type="email" class="form-control" placeholder="Email" v-model="newContact.email">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Teléfono</label>
+                                <input type="tel" class="form-control" placeholder="Número de teléfono" v-model="newContact.phone">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Agencia</label>
+                                <input type="tel" class="form-control" placeholder="Nombre de Agencia" v-model="newContact.agencia">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="success"></div>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <button type="submit" class="btn btn-success btn-lg">Añadir</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="success" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Acerca de PromoConcert</h2>
+                    <hr class="star-light">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>AgendaPromoConcert es más que una aplicación, es una experiencia única que celebra la diversidad cultural a través de festivales vibrantes y emocionantes.</p>
+                    <p>Sumérgete en la magia de la música, el arte y la cultura en nuestros festivales anuales, donde la creatividad florece y la comunidad se une para celebrar la vida. Desde escenarios llenos de artistas talentosos hasta deliciosa gastronomía local, AgendaPromoConcert es el destino definitivo para aquellos que buscan vivir experiencias inolvidables.</p>
+                    <p>Descubre nuevos talentos, conecta con personas apasionadas y deja que AgendaPromoConcert sea tu guía en la exploración de lo mejor en entretenimiento y cultura.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyleft &copy; PromoConcertGroup
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll visible-xs visible-sm">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Vue -->
+    <script src="js/vue.js"></script>
+
+    <!-- Vue App -->
+    <script>
+        new Vue({
+            el: '#contactos',
+            data: {
+                contacts: [
+                    { name: 'Aitor Hernandez', email: 'a.hernandez@deusto.es', phone: '23523565342', agencia: 'Rocky' },
+                    { name: 'Aitor Intxausti', email: 'a.intx@deusto.es', phone: '235235252', agencia: 'Muy  Rocky' },
+                    { name: 'Ana Gonzalez', email: 'a.gonz@deusto.es', phone: '457474647' , agencia: 'Mas Rocky'},
+                    { name: 'Sara Hernandez', email: 's.hern@deusto.es', phone: '476834223', agencia: 'Demasiado Rocky' }
+                    // Puedes agregar más contactos aquí
+                ],
+                newContact: {
+                    name: '',
+                    email: '',
+                    phone: ''
+                }
+            },
+            methods: {
+                addContact: function () {
+                    // Añadir el nuevo contacto a la lista
+                    this.contacts.push({ ...this.newContact });
+
+                    // Limpiar el formulario después de añadir el contacto
+                    this.newContact.name = '';
+                    this.newContact.email = '';
+                    this.newContact.phone = '';
+                },
+                removeContact: function (contact) {
+                    // Eliminar el contacto de la lista
+                    const index = this.contacts.indexOf(contact);
+                    this.contacts.splice(index, 1);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
