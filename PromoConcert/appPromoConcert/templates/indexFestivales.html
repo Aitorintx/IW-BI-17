@@ -1,20 +1,24 @@
 {% extends "base.html" %}
 
-{% block titulo %}Listado de departamentos{% endblock %}
+{% block titulo %}Listado de festivales{% endblock %}
 
 {% block contenido %}
     <h2>Listado de festivales</h2>
     {% if lista_festivales %}
         <div class="festivales-grid">
             {% for fest in lista_festivales %}
-            <div class="festivales-item">
-                <a href="/festivales/{{ fest.idFestival }}">{{ fest.nombreFestival}}</a>
-            </div>
+                <div class="festivales-item" itemscope itemtype="http://schema.org/MusicFestival">
+                    <a href="/festivales/{{ fest.idFestival }}" itemprop="url">
+                        {% load static %}
+                        <img alt="{{ fest.imagen.name }}" src="{% static fest.imagen.name %}" itemprop="image">
+                        <span itemprop="name">{{ fest.nombreFestival }}</span>
+                    </a>
+                </div>
             {% endfor %}
+        </div>
 
-            <div>
-                <li><a href="/formularioFestival/">Añadir festiva</a></li>
-            </div>
+        <div>
+            <li><a href="/formularioFestival/">Añadir festival</a></li>
         </div>
     {% else %}
         <p>No hay festivales musicales.</p>

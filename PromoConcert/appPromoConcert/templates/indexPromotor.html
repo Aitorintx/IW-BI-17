@@ -1,21 +1,21 @@
 {% extends "base.html" %}
 
-{% block titulo %}Listado de promotores{% endblock %}
+{% block titulo %}Listado de promotores musicales{% endblock %}
 
 {% block contenido %}
     <h2>Listado de promotores musicales</h2>
     {% if object_list %}
-        <div class="promotores-grid">
+        <div class="promotores-grid" itemscope itemtype="http://schema.org/Organization">
             {% for pro in object_list %}
-                <div class="promotor-item">
-                    <a href="/promotores/{{ pro.idPromotor }}">
+                <div class="promotor-item" itemprop="member" itemscope itemtype="http://schema.org/Person">
+                    <a href="/promotores/{{ pro.idPromotor }}" itemprop="url">
                         {% load static %}
-                        <img alt="{{ pro.foto.name }}" src="{% static pro.foto.name %}" />
+                        <img alt="{{ pro.foto.name }}" src="{% static pro.foto.name %}" itemprop="image">
+                        <span itemprop="name">{{ pro.nombre }}</span>
                     </a>
                 </div>
             {% endfor %}
         </div>
-    
     {% else %}
         <p>No hay promotores musicales.</p>
     {% endif %}
