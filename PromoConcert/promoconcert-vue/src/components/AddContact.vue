@@ -1,12 +1,12 @@
 <template>
-  <div class="add-contact-container">
+  <div class="add-contact-container" itemscope itemtype="http://schema.org/Person">
     <h1>Add Contact</h1>
     <form @submit.prevent="addContact" class="add-contact-form">
-      <label for="inputName">Name: </label>
+      <label for="inputName" itemprop="name">Name: </label>
       <input v-model="name" id="inputName" required />
-      <label for="inputEmail">Email: </label>
+      <label for="inputEmail" itemprop="email">Email: </label>
       <input v-model="email" type="email" id="inputEmail" required />
-      <label for="inputPhone">Phone: </label>
+      <label for="inputPhone" itemprop="telephone">Phone: </label>
       <input v-model="phone" id="inputPhone" required />
       <button type="submit" class="add-button">Add Contact</button>
     </form>

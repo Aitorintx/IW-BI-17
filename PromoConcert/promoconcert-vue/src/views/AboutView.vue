@@ -5,11 +5,25 @@
       Welcome to the Festival Organizer Agenda! Our platform is designed to assist festival organizers and promoters in efficiently managing and organizing their events. Whether you're planning music festivals, cultural events, or any other type of gathering, our agenda tool is here to streamline your workflow.
     </p>
     <p>
-      With our user-friendly interface, you can easily add, edit, and delete contacts for performers, vendors, sponsors, and other essential stakeholders. Stay on top of your schedule, manage tasks, and receive timely notifications to ensure that your event planning process runs smoothly.
+      With our user-friendly interface, you can easily add, and delete contacts for performers, vendors, sponsors, and other essential stakeholders. Stay on top of your schedule, manage tasks, and receive timely notifications to ensure that your event planning process runs smoothly.
     </p>
     <p>
       Interested in joining our platform? Sign up today to gain access to a comprehensive set of tools designed to simplify the complexities of festival organization. Let us help you bring your events to life with ease and efficiency.
     </p>
+
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "Festival Organizer Agenda",
+        "description": "Platform for festival organizers and promoters",
+        "url": "https://www.tu-sitio-web.com",
+        "sameAs": [
+          "https://www.facebook.com",
+          "https://twitter.com"
+        ]
+      }
+    </script>
   </div>
 </template>
 
