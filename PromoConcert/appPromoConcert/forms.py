@@ -1,5 +1,10 @@
 from django import forms
-from .models import Interprete, Festival
+from .models import Interprete, Festival, Contacto
+
+class ContactoForm(forms.ModelForm):
+    class Meta:
+        model = Contacto
+        fields = ['nombre', 'email', 'telefono']
 
 class InterpreteForm(forms.ModelForm):
     class Meta:

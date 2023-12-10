@@ -1,0 +1,52 @@
+<!-- en templates/contactos.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <title>Agenda de Contactos</title>
+</head>
+
+<body>
+    <div id="app" class="contenedor">
+        <header>
+            <h1>Agenda de Contactos</h1>
+        </header>
+
+        <section>
+            <h2>Contactos</h2>
+            <ul>
+                <li v-for="contacto in contactos" :key="contacto.id">
+                    {{ contacto.nombre }} - {{ contacto.email }} - {{ contacto.telefono }}
+                    <button @click="eliminarContacto(contacto.id)">Eliminar</button>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Nuevo Contacto</h2>
+            <form @submit.prevent="crearContacto">
+                <label for="nombre">Nombre:</label>
+                <input v-model="nuevoContacto.nombre" type="text" id="nombre" required>
+
+                <label for="email">Email:</label>
+                <input v-model="nuevoContacto.email" type="email" id="email" required>
+
+                <label for="telefono">Teléfono:</label>
+                <input v-model="nuevoContacto.telefono" type="tel" id="telefono" required>
+
+                <button type="submit">Guardar</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- Incluir Vue.js y tu script -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="{% static 'tu_app/vue/apps/contactos.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</body>
+
+</html>

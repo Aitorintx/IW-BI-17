@@ -4,6 +4,32 @@ from django.views.generic import ListView
 from .models import Promotor, Festival, Interprete
 from django.shortcuts import render, redirect
 from .forms import InterpreteForm, FestivalForm
+from django.views import View
+from .models import Contacto
+from .forms import ContactoForm
+from django.http import JsonResponse
+
+class ContactosView(View):
+    template_name = 'contactos.html'
+
+    def get(self, request, *args, **kwargs):
+        contactos = Contacto.objects.all()
+        return render(request, self.template_name, {'contactos': contactos})
+
+def eliminar_contacto(request, contacto_id):
+    contacto = Contacto.objects.get(pk=contacto_id)
+    contacto.delete()
+    return JsonResponse({'message': 'Contacto eliminado exitosamente!'})
+
+def crear_contacto(request):
+    if request.method == 'POST':
+        form = ContactoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return JsonResponse({'message': 'Contacto creado exitosamente!'})
+    else:
+        form = ContactoForm()
+    return render(request, 'crear_contacto.html', {'form': form})
 
 def index(request):
 	promotores = get_list_or_404(Promotor.objects.order_by('namePromotor'))

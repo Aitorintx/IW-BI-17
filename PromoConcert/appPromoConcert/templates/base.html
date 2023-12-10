@@ -20,7 +20,10 @@
                 </ul>
             </nav>
         </header>
-            {% block contenido %}{% endblock %}
+            {% block contenido %}
+            <script type="text/javascript"  src="{% static 'vue/vue.js' %}"></script>
+            <script type="text/javascript"  src="{% static 'vue/apps/addInteresado.js' %}"></script>
+            {% endblock %}
     </section>
 </body>
 </html>
