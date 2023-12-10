@@ -17,7 +17,7 @@ const routes = [
   {
     path: '/about',
     name: 'about',
-    component: AboutView // Asigna el componente AboutView a la ruta '/about'
+    component: AboutView 
   },
   {
     path: '/contacts',

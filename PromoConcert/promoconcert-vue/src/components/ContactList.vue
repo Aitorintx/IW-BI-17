@@ -1,10 +1,13 @@
 <template>
-  <div class="contact-list-container">
+  <div class="contact-list-container" itemscope itemtype="http://schema.org/ItemList">
     <h1>Contact List</h1>
-    <ul class="contact-list">
-      <li v-for="(contact, index) in contacts" :key="index" class="contact-item">
-        {{ contact.name }} - {{ contact.email }} - {{ contact.phone }}
+    <ul class="contact-list" itemprop="itemListElement" itemscope itemtype="http://schema.org/Person">
+      <li v-for="(contact, index) in contacts" :key="index" class="contact-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+        <span itemprop="name">{{ contact.name }}</span> -
+        <span itemprop="email">{{ contact.email }}</span> -
+        <span itemprop="telephone">{{ contact.phone }}</span>
         <button @click="deleteContact(index)" class="delete-button">Delete</button>
+        <meta itemprop="position" :content="index + 1" /> 
       </li>
     </ul>
   </div>
