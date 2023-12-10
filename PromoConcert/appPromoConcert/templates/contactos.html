@@ -1,4 +1,5 @@
 <!DOCTYPE html> 
+{% load static %} 
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -8,18 +9,30 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 </head>
 <body>
-    <div id="app">
+    <div id="app-4">
         <h1>{{ header|upper }}</h1>
 
         <section>
             <h2>Contactos</h2>
             <ul>
                 <li v-for="contacto in contactos" :key="contacto.id">
-                    {{ contacto.nombre }} - {{ contacto.email }} - {{ contacto.telefono }}
+                    <div>
+                        <strong>Nombre:</strong> {{ contacto.nombre }}
+                    </div>
+                    <div>
+                        <strong>Email:</strong> {{ contacto.email }}
+                    </div>
+                    <div>
+                        <strong>Teléfono:</strong> {{ contacto.telefono }}
+                    </div>
                     <button @click="eliminarContacto(contacto.id)">Eliminar</button>
+                    <hr> <!-- Add a horizontal line for better separation -->
                 </li>
             </ul>
         </section>
+        
+        
+        
 
         <section>
             <h2>Nuevo Contacto</h2>
@@ -34,7 +47,7 @@
 
     <script>
         var app = new Vue({
-            el: '#app',
+            el: '#app-4',
             data: {
                 header: 'Agenda de Contactos',
                 nuevoContacto: {

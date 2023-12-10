@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="PromoConcert" content="Content">
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <script type="text/javascript" src="static/vue/vue.js"></script>
     <title itemprop="name">{% block titulo %}Gestor de Promo Concerts{% endblock %}</title>
     
     <!--Twitter -->
@@ -39,8 +40,6 @@
     <section id="app" class="contenedor" itemscope itemtype="http://schema.org/WebPageElement">
         <header>
             <h1 itemprop="headline">{{ greeting }}</h1>
-            <!-- Mostrar el título de la página -->
-            <h2>Gestor de PromoConcert</h2>
             <!-- Display the counter and buttons to interact with methods -->
             <p>Counter: {{ counter }}</p>
             <button @click="increaseCounter">Increment</button>
@@ -60,24 +59,17 @@
         <!-- Aquí puedes agregar tu lógica de Vue.js según sea necesario -->
         {% endblock %}
     </section>
-
-    <script>
-        // Your Vue.js script
-        var app = new Vue({
-            el: '#app',
-            data: {
-                greeting: '¡Hola, mundo!',
-                counter: 0,
-            },
-            methods: {
-                increaseCounter: function() {
-                    this.counter++;
-                },
-                resetCounter: function() {
-                    this.counter = 0;
-                },
-            },
-        });
-    </script>
+    <!-- Agregamos Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script type="text/javascript">
+        var app4 = new Vue({
+        el:'#app-4',
+        data:{
+                header:'Noticia facultad de ingeniería',
+                counter: 0
+            }
+        })
+        </script>
+    
 </body>
 </html>
