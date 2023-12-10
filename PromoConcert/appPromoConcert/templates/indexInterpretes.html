@@ -10,7 +10,7 @@
         <div class="interpretes-grid">
             {% for inte in lista_interpretes %}
                 <div class="interprete-item" itemscope itemtype="http://schema.org/MusicGroup">
-                    <a href="/interpretes/{{ inte.idInterprete }}" itemprop="url">
+                    <a href="{% url 'interpretes' %}{{ inte.idInterprete }}" itemprop="url">
                        <!--<img src="{{ inte.imagen }}" alt="{{ inte.nameInterprete }}" itemprop="image"> <!-- Agrega una imagen del intérprete -->
                        <span itemprop="name">{{ inte.nameInterprete }}</span>
                     </a>
@@ -39,13 +39,13 @@
         </div>
         <br>
         <div>
-            <h2><a href="/loginI/">¿Nuevo intérprete?</a></h2>
+            <h2><a href="{% url 'loginI' %}">¿Nuevo intérprete?</a></h2>
         </div>
     {% else %}
         <p>No hay cantantes/grupos.</p>
         
         <div>
-            <li><a href="/loginI/">Nuevo intérprete?</a></li>
+            <li><a href="{% url 'loginI' %}">Nuevo intérprete?</a></li>
         </div>
     {% endif %}
         <!-- Capacidad Social: Twitter -->

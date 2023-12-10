@@ -1,40 +1,20 @@
 <!DOCTYPE html>
+{% extends "base.html" %}
 {% load static %} 
-<html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
-        <title>Agregar Intérprete</title>
-        
-    </head>
 
-    <div class="contenedor">
+{% block titulo %}  {% endblock %}
+{% block contenido %}
+    <h2>Inicio sesión promotora</h2>
+        <div class="inicioSes">
+            <form id="loginForm" method="post" action="{% url 'loginF' %}">
+                {% csrf_token %}
+                <input type="text" id="usernameField" name="username" placeholder="Enter your name">
+                <br><br>
+                <button type="button" onclick="showConfirmation()"><a href="{% url 'addInterprete' %}">Iniciar Sesión</a> </button>
+            </form>
+        </div>
+    
 
-        <body>
-            <header>
-                <h1>Gestor de PromoConcert</h1>
-                <nav>
-                    <ul>
-                        <li><a href="/">Inicio</a></li>
-                        <li><a href="/promotores/">Promotoras</a></li>
-                        <li><a href="/festivales/">Festivales</a></li>
-                        <li><a href="/interpretes/">Interpretes</a></li>
-                    </ul>
-                </nav>
-            </header>
-
-            <h2>Inicio sesión promotora</h2>
-            <div class="inicioSes">
-                <form method="post" action="{% url 'loginF' %}">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <br><br>
-                    <button type="submit"><a href="/formularioFestival/">Iniciar Sesión</a></button>
-                </form>
-            </div>
-        </body>
-
-    </div>
-
-</html>
+    <script src="{% static 'admin/js/windowInicioSesion.js' %}" > </script>   
+{% endblock %}

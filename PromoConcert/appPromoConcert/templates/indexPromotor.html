@@ -26,13 +26,13 @@
                     <!--Twitter -->
                     <div itemscope itemtype="https://schema.org/Person">
                         <meta itemprop="name" content="{{ pro.nombre }}">
-                        <meta itemprop="url" content="/promotores/{{ pro.idPromotor }}">
+                        <meta itemprop="url" content="{% url 'indexPromotor' %}{{ pro.idPromotor }}">
                     </div>
                     
                     <!--Facebook -->
                     <div itemscope itemtype="https://schema.org/Person">
                         <meta itemprop="name" content="{{ pro.nombre }}">
-                        <meta itemprop="url" content="/promotores/{{ pro.idPromotor }}">
+                        <meta itemprop="url" content="{% url 'indexPromotor' %}{{ pro.idPromotor }}">
                     </div>
                     
                     <!-- JSON-LD-->

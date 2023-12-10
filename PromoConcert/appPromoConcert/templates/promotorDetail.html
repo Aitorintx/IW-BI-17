@@ -24,7 +24,7 @@
                 <ul itemprop="event" itemscope itemtype="http://schema.org/Festival">
                     {% for festival in promotor.festivales.all %}
                         <li itemprop="subEvent" itemscope itemtype="http://schema.org/MusicEvent">
-                            <a href="/festivales/{{ festival.idFestival }}" itemprop="url">{{ festival.nombreFestival}}</a>
+                            <a href="{% url 'festivales' %}{{ festival.idFestival }}" itemprop="url">{{ festival.nombreFestival}}</a>
                         </li>
                     {% endfor %}
                 </ul>

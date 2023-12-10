@@ -9,15 +9,15 @@
         <div class="festivales-grid">
             {% for fest in lista_festivales %}
                 <div class="festivales-item" itemscope itemtype="http://schema.org/MusicFestival">
-                    <a href="/festivales/{{ fest.idFestival }}" itemprop="url">
+                    <a href="{% url 'festivales' %}{{ fest.idFestival }}" itemprop="url">
                         {% load static %}
-                        <img alt="{{ fest.imagen.name }}" " itemprop="image">
+                        <img alt="{{ fest.imagen.name }}"  itemprop="image">
                     </a>
                 </div>
                 
                 <!-- RDFa -->
                 <div vocab="http://schema.org/" typeof="MusicFestival">
-                    <a property="url" href="/festivales/{{ fest.idFestival }}">
+                    <a property="url" href="{% url 'festivales' %}{{ fest.idFestival }}">
                         <img property="image"  alt="{{ fest.imagen.name }}">
                         <span property="name">{{ fest.nombreFestival }}</span>
                     </a>
@@ -35,13 +35,13 @@
         </div>
 
         <div>
-            <h2><a href="/loginF/">¿Nuevo festival?</a></h2>
+            <h2><a href="{% url 'loginF' %}">¿Nuevo festival?</a></h2>
         </div>
     {% else %}
         <p>No hay festivales musicales.</p>
 
         <div>
-            <h2><a href="/loginF/">¿Nuevo festival?</a></h2>
+            <h2><a href="{% url 'loginF' %}">¿Nuevo festival?</a></h2>
         </div>
     {% endif %}
 

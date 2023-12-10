@@ -42,10 +42,10 @@
             <h1 itemprop="headline">{{ greeting }}</h1>
             <nav itemprop="name">
                 <ul itemscope itemtype="http://www.schema.org/SiteNavigationElement">
-                    <li itemprop="url"><a href="/">Inicio</a></li>
-                    <li itemprop="url"><a href="/promotores/">Promotoras</a></li>
-                    <li itemprop="url"><a href="/festivales/">Festivales</a></li>
-                    <li itemprop="url"><a href="/interpretes/">Interpretes</a></li>
+                    <li itemprop="url"><a href="{% url 'index' %}">Inicio</a></li>
+                    <li itemprop="url"><a href="{% url 'indexPromotor' %}">Promotoras</a></li>
+                    <li itemprop="url"><a href="{% url 'festivales' %}">Festivales</a></li>
+                    <li itemprop="url"><a href="{% url 'interpretes' %}">Interpretes</a></li>
                 </ul>
             </nav>
         </header>

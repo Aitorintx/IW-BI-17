@@ -15,9 +15,6 @@ urlpatterns = [
     path('formularioFestival/', views.add_festival, name='addFestival'),
     path('loginF/', views.loginF, name='loginF'),
     path('loginI/', views.loginI, name='loginI'),
-    path('contactos/', views.ContactosView.as_view(), name='contactos'),
-    path('eliminar_contacto/<int:contacto_id>/', views.eliminar_contacto, name='eliminar_contacto'),
-    path('crear_contacto/', views.crear_contacto, name='crear_contacto'),
     path('', views.index, name='index'),
 ]
 

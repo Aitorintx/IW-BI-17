@@ -14,6 +14,6 @@ function loadPromotorDetails(promotorId) {
             document.getElementById('promotorInfo').innerHTML = this.responseText;
         }
     };
-    xhttp.open("GET", "/promotores/" + promotorId, true);
+    xhttp.open("GET", promotorId, true);
     xhttp.send();
 }

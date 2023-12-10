@@ -16,7 +16,7 @@
                 <ul>
                     {% for festival in interprete.festival_set.all %}
                         <li itemscope itemtype="http://schema.org/MusicEvent">
-                            <a href="/festivales/{{ festival.idFestival }}" itemprop="url">
+                            <a href="{% url 'festivales' %}{{ festival.idFestival }}" itemprop="url">
                                 <span itemprop="name">{{ festival.nombreFestival }}</span>
                             </a>
                         </li>
