@@ -6,8 +6,11 @@ from django.shortcuts import render, redirect
 from .forms import InterpreteForm, FestivalForm
 from django.views import View
 from .models import Contacto
-from .forms import ContactoForm
+from .forms import ContactoForm, CustomAuthenticationForm
 from django.http import JsonResponse
+from django.contrib.auth import authenticate, login
+from django.contrib import messages
+
 
 class ContactosView(View):
     template_name = 'contactos.html'
@@ -95,11 +98,35 @@ def add_festival(request):
     return render(request, 'formularioFestival.html', {'form': form})
 
 def loginF(request):
-    return render(request, 'loginF.html')
+    if request.method == 'POST':
+        form = CustomAuthenticationForm(request, request.POST)
+        if form.is_valid():
+            name_promotor = form.cleaned_data['namePromotor']
+            user = authenticate(request, name_promotor=name_promotor)
+
+            if user is not None:
+                login(request, user)
+                return redirect('formularioFestival')  # Ajusta la URL según tu aplicación
+    else:
+        form = CustomAuthenticationForm()
+
+    return render(request, 'loginF.html', {'form': form})
 
 
 def loginI(request):
-    return render(request, 'loginI.html')
+    if request.method == 'POST':
+        form = CustomAuthenticationForm(request, request.POST)
+        if form.is_valid():
+            name_promotor = form.cleaned_data['namePromotor']
+            user = authenticate(request, name_promotor=name_promotor)
+
+            if user is not None:
+                login(request, user)
+                return redirect('formularioFestival')  # Ajusta la URL según tu aplicación
+    else:
+        form = CustomAuthenticationForm()
+
+    return render(request, 'loginI.html', {'form': form})
 
 
 class PromotoresList(ListView):

@@ -3,22 +3,23 @@
 {% block titulo %}Listado de intérpretes{% endblock %}
 
 {% block contenido %}
-<input type="text" id="filtroInterpretes" placeholder="Buscar intérprete...">
     {% if lista_interpretes %}
         <h2>Listado de intérpretes</h2>
+        <input type="text" id="filtroInterpretes" placeholder="Buscar intérprete...">
+        <br><br><br>
         <div class="interpretes-grid">
             {% for inte in lista_interpretes %}
                 <div class="interprete-item" itemscope itemtype="http://schema.org/MusicGroup">
                     <a href="/interpretes/{{ inte.idInterprete }}" itemprop="url">
-                        <img src="{{ inte.imagen }}" alt="{{ inte.nameInterprete }}" itemprop="image"> <!-- Agrega una imagen del intérprete -->
-                        <span itemprop="name">{{ inte.nameInterprete }}</span>
+                       <!--<img src="{{ inte.imagen }}" alt="{{ inte.nameInterprete }}" itemprop="image"> <!-- Agrega una imagen del intérprete -->
+                       <span itemprop="name">{{ inte.nameInterprete }}</span>
                     </a>
                     <div itemprop="description">{{ inte.descripcion }}</div> 
                     <div itemprop="genre">{{ inte.genero }}</div> 
                 
                     <!-- Microdata -->
                     <div itemscope itemtype="http://schema.org/Event">
-                        <span itemprop="name">{{ inte.nameInterprete }}</span>
+                        <!--<span itemprop="name">{{ inte.nameInterprete }}</span>-->
                         <meta itemprop="url" content="{{ inte.nameInterprete }}">
                     </div>
                     <!-- JSON-LD-->

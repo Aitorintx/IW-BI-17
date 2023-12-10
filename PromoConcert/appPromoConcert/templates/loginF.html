@@ -26,12 +26,9 @@
 
             <h2>Inicio sesión promotora</h2>
             <div class="inicioSes">
-                <form method="post" action="">
-                    <label for="username">Usuario:</label>
-                    <input type="text" id="username" name="username" required>
-                    <br><br>
-                    <label for="password">Contraseña:</label>
-                    <input type="password" id="password" name="password" required>
+                <form method="post" action="{% url 'loginF' %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
                     <br><br>
                     <button type="submit"><a href="/formularioFestival/">Iniciar Sesión</a></button>
                 </form>

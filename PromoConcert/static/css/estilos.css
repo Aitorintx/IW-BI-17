@@ -95,7 +95,7 @@ body{
     grid-gap: 10px;
 }
 
-.interpretes-item a{
+.interprete-item a{
     list-style: none;
     text-align: left;
     color:#c300bd;
@@ -108,3 +108,4 @@ body{
 .inicioSes{
     text-align: center;
 }
+
