@@ -11,15 +11,9 @@
                     <a href="/festivales/{{ fest.idFestival }}" itemprop="url">
                         {% load static %}
                         <img alt="{{ fest.imagen.name }}" src="{% static fest.imagen.name %}" itemprop="image">
-                        <span itemprop="name">{{ fest.nombreFestival }}</span>
                     </a>
                 </div>
-                <!-- Microdata -->
-                <div itemscope itemtype="http://schema.org/Event">
-                    <span itemprop="name">{{ fest.nombreFestival }}</span>
-                    <meta itemprop="startDate" content="{{ fest.fechaInicio }}">
-                    <meta itemprop="endDate" content="{{ fest.fechaFin }}">
-                </div>
+                
                 <!-- RDFa -->
                 <div vocab="http://schema.org/" typeof="MusicFestival">
                     <a property="url" href="/festivales/{{ fest.idFestival }}">

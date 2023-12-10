@@ -31,11 +31,18 @@
             "image": "{% static 'path/to/main-image.jpg' %}"
         }
     </script>
+
+    <!-- Agregamos Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 </head>
 <body>
-    <section class="contenedor" itemscope itemtype="http://schema.org/WebPageElement">
+    <section id="app" class="contenedor" itemscope itemtype="http://schema.org/WebPageElement">
         <header>
-            <h1 itemprop="headline">Gestor de PromoConcert</h1>
+            <h1 itemprop="headline">{{ greeting }}</h1>
+            <!-- Display the counter and buttons to interact with methods -->
+            <p>Counter: {{ counter }}</p>
+            <button @click="increaseCounter">Increment</button>
+            <button @click="resetCounter">Reset</button>
             <nav itemprop="name">
                 <ul itemscope itemtype="http://www.schema.org/SiteNavigationElement">
                     <li itemprop="url"><a href="/">Inicio</a></li>
@@ -46,20 +53,29 @@
                 </ul>
             </nav>
         </header>
+        
         {% block contenido %}
-        <script type="text/javascript"  src="{% static 'vue/vue.js' %}"></script>
-        <script type="text/javascript"  src="{% static 'vue/apps/addInteresado.js' %}"></script>
-        <!-- Capacidad Social: Twitter -->
-    <a href="https://twitter.com/intent/tweet?text=Listado%20de%20festivales&url={{ request.build_absolute_uri }}"
-       class="twitter-share-button" data-show-count="false">Tweet</a>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-    <!-- Capacidad Social: Facebook -->
-    <div class="fb-share-button" data-href="{{ request.build_absolute_uri }}" data-layout="button" data-size="small">
-        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}"
-           class="fb-xfbml-parse-ignore">Compartir</a>
-    </div>
+        <!-- Aquí puedes agregar tu lógica de Vue.js según sea necesario -->
         {% endblock %}
     </section>
+
+    <script>
+        // Your Vue.js script
+        var app = new Vue({
+            el: '#app',
+            data: {
+                greeting: '¡Hola, mundo!',
+                counter: 0,
+            },
+            methods: {
+                increaseCounter: function() {
+                    this.counter++;
+                },
+                resetCounter: function() {
+                    this.counter = 0;
+                },
+            },
+        });
+    </script>
 </body>
 </html>

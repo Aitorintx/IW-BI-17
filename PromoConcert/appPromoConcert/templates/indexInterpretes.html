@@ -13,21 +13,14 @@
                         <img src="{{ inte.imagen }}" alt="{{ inte.nameInterprete }}" itemprop="image"> <!-- Agrega una imagen del intérprete -->
                         <span itemprop="name">{{ inte.nameInterprete }}</span>
                     </a>
-                    <div itemprop="description">{{ inte.descripcion }}</div> <!-- Agrega una descripción del intérprete -->
-                    <div itemprop="genre">{{ inte.genero }}</div> <!-- Agrega el género musical del intérprete -->
-                    
-                    <!--Twitter -->
-                    <div itemscope itemtype="https://schema.org/MusicGroup">
-                        <meta itemprop="name" content="{{ inte.nameInterprete }}">
-                        <meta itemprop="url" content="/interpretes/{{ inte.idInterprete }}">
+                    <div itemprop="description">{{ inte.descripcion }}</div> 
+                    <div itemprop="genre">{{ inte.genero }}</div> 
+                
+                    <!-- Microdata -->
+                    <div itemscope itemtype="http://schema.org/Event">
+                        <span itemprop="name">{{ inte.nameInterprete }}</span>
+                        <meta itemprop="url" content="{{ inte.nameInterprete }}">
                     </div>
-                    
-                    <!--Facebook -->
-                    <div itemscope itemtype="https://schema.org/MusicGroup">
-                        <meta itemprop="name" content="{{ inte.nameInterprete }}">
-                        <meta itemprop="url" content="/interpretes/{{ inte.idInterprete }}">
-                    </div>
-                    
                     <!-- JSON-LD-->
                     <script type="application/ld+json">
                         {

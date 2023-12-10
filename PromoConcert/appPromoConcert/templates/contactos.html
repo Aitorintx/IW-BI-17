@@ -1,19 +1,15 @@
-<!-- en templates/contactos.html -->
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-
+<!DOCTYPE html> 
+<html lang="es">
 <head>
     <meta charset="UTF-8">
+    {% load static %}
+    <title>{% block title %}Agenda de Contactos{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
-    <title>Agenda de Contactos</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 </head>
-
 <body>
-    <div id="app" class="contenedor">
-        <header>
-            <h1>Agenda de Contactos</h1>
-        </header>
+    <div id="app">
+        <h1>{{ header|upper }}</h1>
 
         <section>
             <h2>Contactos</h2>
@@ -27,26 +23,58 @@
 
         <section>
             <h2>Nuevo Contacto</h2>
-            <form @submit.prevent="crearContacto">
-                <label for="nombre">Nombre:</label>
-                <input v-model="nuevoContacto.nombre" type="text" id="nombre" required>
-
-                <label for="email">Email:</label>
-                <input v-model="nuevoContacto.email" type="email" id="email" required>
-
-                <label for="telefono">Teléfono:</label>
-                <input v-model="nuevoContacto.telefono" type="tel" id="telefono" required>
-
-                <button type="submit">Guardar</button>
-            </form>
+            <div>
+                <input v-model="nuevoContacto.nombre" type="text" placeholder="Nombre" required>
+                <input v-model="nuevoContacto.email" type="email" placeholder="Email" required>
+                <input v-model="nuevoContacto.telefono" type="tel" placeholder="Teléfono" required>
+                <button @click="guardarContacto">Guardar</button>
+            </div>
         </section>
     </div>
 
-    <!-- Incluir Vue.js y tu script -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-    <script src="{% static 'tu_app/vue/apps/contactos.js' %}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                header: 'Agenda de Contactos',
+                nuevoContacto: {
+                    nombre: '',
+                    email: '',
+                    telefono: ''
+                },
+                contactos: [
+                    {
+                        id: 1,
+                        nombre: 'Ejemplo1',
+                        email: 'ejemplo1@example.com',
+                        telefono: '123-456-7890'
+                    },
+                    {
+                        id: 2,
+                        nombre: 'Ejemplo2',
+                        email: 'ejemplo2@example.com',
+                        telefono: '987-654-3210'
+                    }
+                ]
+            },
+            methods: {
+                guardarContacto: function () {
+                    this.nuevoContacto.id = Date.now();
+                    this.contactos.push(Object.assign({}, this.nuevoContacto));
+                    this.resetearFormulario();
+                },
+                eliminarContacto: function (id) {
+                    this.contactos = this.contactos.filter(contacto => contacto.id !== id);
+                },
+                resetearFormulario: function () {
+                    this.nuevoContacto = {
+                        nombre: '',
+                        email: '',
+                        telefono: ''
+                    };
+                }
+            }
+        });
+    </script>
 </body>
-
 </html>
