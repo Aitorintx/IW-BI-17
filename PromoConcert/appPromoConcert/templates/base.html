@@ -37,28 +37,28 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 </head>
 <body>
-    <div id="app-4">
-        <section class="contenedor" itemscope itemtype="http://schema.org/WebPageElement">
-            <header>
-                <h1 itemprop="headline">Gestor de PromoConcert</h1>
-                <h2> {{counter}} me gusta</h2>
-	    	    <button v-on:click="counter++">Me Gusta</button>
-	    	    <button v-on:click="counter--">No me Gusta</button>
-                <nav itemprop="name">
-                    <ul itemscope itemtype="http://www.schema.org/SiteNavigationElement">
-                        <li itemprop="url"><a href="/">Inicio</a></li>
-                        <li itemprop="url"><a href="/promotores/">Promotoras</a></li>
-                        <li itemprop="url"><a href="/festivales/">Festivales</a></li>
-                        <li itemprop="url"><a href="/interpretes/">Interpretes</a></li>
-                        <li itemprop="url"><a href="/contactos/">Contactos</a></li>
-                    </ul>
-                </nav>
-            </header>
-
-            {% block contenido %}
-            <!-- Aquí puedes agregar tu lógica de Vue.js según sea necesario -->
-            {% endblock %}
-    </div>
+    <section id="app" class="contenedor" itemscope itemtype="http://schema.org/WebPageElement">
+        <header>
+            <h1>Gestor de PromoConcert</h1>
+            <h1 itemprop="headline">{{ greeting }}</h1>
+            <!-- Display the counter and buttons to interact with methods -->
+            <p>Counter: {{ counter }}</p>
+            <button @click="increaseCounter">Increment</button>
+            <button @click="resetCounter">Reset</button>
+            <nav itemprop="name">
+                <ul itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+                    <li itemprop="url"><a href="/">Inicio</a></li>
+                    <li itemprop="url"><a href="/promotores/">Promotoras</a></li>
+                    <li itemprop="url"><a href="/festivales/">Festivales</a></li>
+                    <li itemprop="url"><a href="/interpretes/">Interpretes</a></li>
+                    <li itemprop="url"><a href="/contactos/">Contactos</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        {% block contenido %}
+        <!-- Aquí puedes agregar tu lógica de Vue.js según sea necesario -->
+        {% endblock %}
     </section>
     <!-- Agregamos Vue.js -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
