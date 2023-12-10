@@ -1,32 +1,56 @@
 {% extends "base.html" %}
 
-{% block titulo %} Detalle del interprete {% endblock %}
+{% block titulo %} Detalle del intérprete {% endblock %}
 
 {% block contenido %}
     {% if interprete %}
-        <h2>{{ interprete.nameInterprete}}</h2>
+        <article itemscope itemtype="http://schema.org/MusicGroup">
+            <h2 itemprop="name">{{ interprete.nameInterprete }}</h2>
 
-            <ul>
-                <li>
-                    {{ interprete.infoInterprete}}
-                </li>
-            </ul>
-            
+            <div itemprop="description">
+                {{ interprete.infoInterprete }}
+            </div>
+
             <h2>Festivales a los que acudirá {{ interprete.nameInterprete }}</h2>
             {% if interprete.festival_set.all %}
                 <ul>
                     {% for festival in interprete.festival_set.all %}
-                        <li>
-                            <a href="/festivales/{{ festival.idFestival }}">{{ festival.nombreFestival}}</a>
+                        <li itemscope itemtype="http://schema.org/MusicEvent">
+                            <a href="/festivales/{{ festival.idFestival }}" itemprop="url">
+                                <span itemprop="name">{{ festival.nombreFestival }}</span>
+                            </a>
                         </li>
                     {% endfor %}
                 </ul>
             {% else %}
-                <p>Este cantante no ha confirmado ningún festival todavía.</p>
+                <p>No se han confirmado festivales para este intérprete.</p>
             {% endif %}
+        </article>
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="{{ interprete.nameInterprete }}">
+        <meta name="twitter:description" content="{{ interprete.infoInterprete }}">
+        <meta name="twitter:image" content="URL_DE_LA_IMAGEN">
+
+        <!--Facebook -->
+        <meta property="og:title" content="{{ interprete.nameInterprete }}">
+        <meta property="og:type" content="music.band">
+        <meta property="og:description" content="{{ interprete.infoInterprete }}">
+        <meta property="og:image" content="URL_DE_LA_IMAGEN">
+
+        <!-- JSON-LD -->
+        <script type="application/ld+json">
+            {
+                "@context": "http://schema.org",
+                "@type": "MusicGroup",
+                "name": "{{ interprete.nameInterprete }}",
+                "description": "{{ interprete.infoInterprete }}"
+            }
+        </script>
 
     {% else %}
-        <p>No existe este interprete.</p>
+        <p>No existe este intérprete.</p>
     {% endif %}
 
 {% endblock %}

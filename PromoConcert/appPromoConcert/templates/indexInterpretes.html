@@ -10,9 +10,36 @@
             {% for inte in lista_interpretes %}
                 <div class="interprete-item" itemscope itemtype="http://schema.org/MusicGroup">
                     <a href="/interpretes/{{ inte.idInterprete }}" itemprop="url">
-                        
+                        <img src="{{ inte.imagen }}" alt="{{ inte.nameInterprete }}" itemprop="image"> <!-- Agrega una imagen del intérprete -->
                         <span itemprop="name">{{ inte.nameInterprete }}</span>
                     </a>
+                    <div itemprop="description">{{ inte.descripcion }}</div> <!-- Agrega una descripción del intérprete -->
+                    <div itemprop="genre">{{ inte.genero }}</div> <!-- Agrega el género musical del intérprete -->
+                    
+                    <!--Twitter -->
+                    <div itemscope itemtype="https://schema.org/MusicGroup">
+                        <meta itemprop="name" content="{{ inte.nameInterprete }}">
+                        <meta itemprop="url" content="/interpretes/{{ inte.idInterprete }}">
+                    </div>
+                    
+                    <!--Facebook -->
+                    <div itemscope itemtype="https://schema.org/MusicGroup">
+                        <meta itemprop="name" content="{{ inte.nameInterprete }}">
+                        <meta itemprop="url" content="/interpretes/{{ inte.idInterprete }}">
+                    </div>
+                    
+                    <!-- JSON-LD-->
+                    <script type="application/ld+json">
+                        {
+                            "@context": "http://schema.org",
+                            "@type": "MusicGroup",
+                            "name": "{{ inte.nameInterprete }}",
+                            "url": "/interpretes/{{ inte.idInterprete }}",
+                            "image": "{{ inte.imagen }}",
+                            "description": "{{ inte.descripcion }}",
+                            "genre": "{{ inte.genero }}"
+                        }
+                    </script>
                 </div>
             {% endfor %}
         </div>
@@ -27,8 +54,16 @@
             <li><a href="/loginI/">Nuevo intérprete?</a></li>
         </div>
     {% endif %}
-    
+        <!-- Capacidad Social: Twitter -->
+    <a href="https://twitter.com/intent/tweet?text=Listado%20de%20festivales&url={{ request.build_absolute_uri }}"
+       class="twitter-share-button" data-show-count="false">Tweet</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+    <!-- Capacidad Social: Facebook -->
+    <div class="fb-share-button" data-href="{{ request.build_absolute_uri }}" data-layout="button" data-size="small">
+        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}"
+           class="fb-xfbml-parse-ignore">Compartir</a>
+    </div>
     {% load static %}
     <script src="{% static 'admin/js/buscadorInterpretes.js' %}" ></script>
-
 {% endblock %}

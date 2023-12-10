@@ -1,29 +1,65 @@
 <!DOCTYPE html>
 {% load static %} 
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="PromoConcert" content="Content">
-        <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
-        <title>{% block titulo %}Gestor de Promo Concerts{% endblock %}</title>
-    </head>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+    <meta charset="UTF-8">
+    <meta name="PromoConcert" content="Content">
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <title itemprop="name">{% block titulo %}Gestor de Promo Concerts{% endblock %}</title>
+    
+    <!--Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gestor de Promo Concerts">
+    <meta name="twitter:description" content="Descripción de la página">
+    <meta name="twitter:image" content="{% static 'path/to/twitter-image.jpg' %}">
+    
+    <!--Facebook -->
+    <meta property="og:title" content="Gestor de Promo Concerts">
+    <meta property="og:description" content="Descripción de la página">
+    <meta property="og:image" content="{% static 'path/to/facebook-image.jpg' %}">
+    <meta property="og:url" content="https://www.facebook.com/login.php?skip_api_login=1&api_key=966242223397117&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fsharer%2Fsharer.php%3Fu%3Dhttp%253A%252F%252F127.0.0.1%253A8000%252Ffestivales%252F&cancel_url=https%3A%2F%2Fwww.facebook.com%2Fdialog%2Fclose_window%2F%3Fapp_id%3D966242223397117%26connect%3D0%23_%3D_&display=popup&locale=es_ES">
+    <meta property="og:type" content="website">
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "WebPage",
+            "name": "Gestor de Promo Concerts",
+            "description": "Descripción de la página",
+            "url": "URL de la página",
+            "image": "{% static 'path/to/main-image.jpg' %}"
+        }
+    </script>
+</head>
 <body>
-    <section class = "contenedor">
+    <section class="contenedor" itemscope itemtype="http://schema.org/WebPageElement">
         <header>
-            <h1>Gestor de PromoConcert</h1>
-            <nav>
-                <ul>
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="/promotores/">Promotoras</a></li>
-                    <li><a href="/festivales/">Festivales</a></li>
-                    <li><a href="/interpretes/">Interpretes</a></li>
+            <h1 itemprop="headline">Gestor de PromoConcert</h1>
+            <nav itemprop="name">
+                <ul itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+                    <li itemprop="url"><a href="/">Inicio</a></li>
+                    <li itemprop="url"><a href="/promotores/">Promotoras</a></li>
+                    <li itemprop="url"><a href="/festivales/">Festivales</a></li>
+                    <li itemprop="url"><a href="/interpretes/">Interpretes</a></li>
+                    <li itemprop="url"><a href="/contactos/">Contactos</a></li>
                 </ul>
             </nav>
         </header>
-            {% block contenido %}
-            <script type="text/javascript"  src="{% static 'vue/vue.js' %}"></script>
-            <script type="text/javascript"  src="{% static 'vue/apps/addInteresado.js' %}"></script>
-            {% endblock %}
+        {% block contenido %}
+        <script type="text/javascript"  src="{% static 'vue/vue.js' %}"></script>
+        <script type="text/javascript"  src="{% static 'vue/apps/addInteresado.js' %}"></script>
+        <!-- Capacidad Social: Twitter -->
+    <a href="https://twitter.com/intent/tweet?text=Listado%20de%20festivales&url={{ request.build_absolute_uri }}"
+       class="twitter-share-button" data-show-count="false">Tweet</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+    <!-- Capacidad Social: Facebook -->
+    <div class="fb-share-button" data-href="{{ request.build_absolute_uri }}" data-layout="button" data-size="small">
+        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}"
+           class="fb-xfbml-parse-ignore">Compartir</a>
+    </div>
+        {% endblock %}
     </section>
 </body>
 </html>
