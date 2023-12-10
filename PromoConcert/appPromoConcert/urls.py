@@ -14,6 +14,7 @@ urlpatterns = [
     path('formularioFestival/', views.add_festival, name='addFestival'),
     path('loginF/', views.loginF, name='loginF'),
     path('loginI/', views.loginI, name='loginI'),
+    path('', views.index, name='index'),
 ]
 
 

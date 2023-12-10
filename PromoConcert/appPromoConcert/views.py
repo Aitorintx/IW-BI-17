@@ -8,7 +8,7 @@ from .forms import InterpreteForm, FestivalForm
 def index(request):
 	promotores = get_list_or_404(Promotor.objects.order_by('namePromotor'))
 	context = {'lista_promotores': promotores }
-	return HttpResponse(render(request, 'index.html', {'output': context}), content_type='text/html', status=200)
+	return render(request, 'index.html', context)
 
 
 def index_promotores(request):
