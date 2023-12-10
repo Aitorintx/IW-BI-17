@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="PromoConcert" content="Content">
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <script type="text/javascript" src="static/vue/vue.js"></script>
     <title itemprop="name">{% block titulo %}Gestor de Promo Concerts{% endblock %}</title>
     
     <!--Twitter -->
@@ -36,46 +37,40 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 </head>
 <body>
-    <section id="app" class="contenedor" itemscope itemtype="http://schema.org/WebPageElement">
-        <header>
-            <h1 itemprop="headline">{{ greeting }}</h1>
-            <!-- Display the counter and buttons to interact with methods -->
-            <p>Counter: {{ counter }}</p>
-            <button @click="increaseCounter">Increment</button>
-            <button @click="resetCounter">Reset</button>
-            <nav itemprop="name">
-                <ul itemscope itemtype="http://www.schema.org/SiteNavigationElement">
-                    <li itemprop="url"><a href="/">Inicio</a></li>
-                    <li itemprop="url"><a href="/promotores/">Promotoras</a></li>
-                    <li itemprop="url"><a href="/festivales/">Festivales</a></li>
-                    <li itemprop="url"><a href="/interpretes/">Interpretes</a></li>
-                    <li itemprop="url"><a href="/contactos/">Contactos</a></li>
-                </ul>
-            </nav>
-        </header>
-        
-        {% block contenido %}
-        <!-- Aquí puedes agregar tu lógica de Vue.js según sea necesario -->
-        {% endblock %}
-    </section>
+    <div id="app-4">
+        <section class="contenedor" itemscope itemtype="http://schema.org/WebPageElement">
+            <header>
+                <h1 itemprop="headline">Gestor de PromoConcert</h1>
+                <h2> {{counter}} me gusta</h2>
+	    	    <button v-on:click="counter++">Me Gusta</button>
+	    	    <button v-on:click="counter--">No me Gusta</button>
+                <nav itemprop="name">
+                    <ul itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+                        <li itemprop="url"><a href="/">Inicio</a></li>
+                        <li itemprop="url"><a href="/promotores/">Promotoras</a></li>
+                        <li itemprop="url"><a href="/festivales/">Festivales</a></li>
+                        <li itemprop="url"><a href="/interpretes/">Interpretes</a></li>
+                        <li itemprop="url"><a href="/contactos/">Contactos</a></li>
+                    </ul>
+                </nav>
+            </header>
 
-    <script>
-        // Your Vue.js script
-        var app = new Vue({
-            el: '#app',
-            data: {
-                greeting: '¡Hola, mundo!',
-                counter: 0,
-            },
-            methods: {
-                increaseCounter: function() {
-                    this.counter++;
-                },
-                resetCounter: function() {
-                    this.counter = 0;
-                },
-            },
-        });
-    </script>
+            {% block contenido %}
+            <!-- Aquí puedes agregar tu lógica de Vue.js según sea necesario -->
+            {% endblock %}
+    </div>
+    </section>
+    <!-- Agregamos Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script type="text/javascript">
+        var app4 = new Vue({
+        el:'#app-4',
+        data:{
+                header:'Noticia facultad de ingeniería',
+                counter: 0
+            }
+        })
+        </script>
+    
 </body>
 </html>
