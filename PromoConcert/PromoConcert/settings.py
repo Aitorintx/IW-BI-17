@@ -54,8 +54,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    'django.middleware.locale.LocaleMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
 ]
 
@@ -78,8 +78,11 @@ TEMPLATES = [
 ]
 
 LANGUAGES = [
-    ('en', _('English')),
     ('es', _('Spanish')),
+    ('en', _('English')),
+    ('ba', _('Basque')),
+    ('ge', _('German')),
+    ('fr', _('French')),
 ]
 
 
@@ -124,7 +127,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = "en"
+LANGUAGE_CODE = "ba"
 
 TIME_ZONE = "UTC"
 

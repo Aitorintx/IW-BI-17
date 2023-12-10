@@ -38,6 +38,7 @@ body{
     justify-content: center;
 }
 
+
 .promotores-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
