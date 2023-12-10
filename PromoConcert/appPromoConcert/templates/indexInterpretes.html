@@ -3,14 +3,14 @@
 {% block titulo %}Listado de intérpretes{% endblock %}
 
 {% block contenido %}
+<input type="text" id="filtroInterpretes" placeholder="Buscar intérprete...">
     {% if lista_interpretes %}
         <h2>Listado de intérpretes</h2>
         <div class="interpretes-grid">
             {% for inte in lista_interpretes %}
                 <div class="interprete-item" itemscope itemtype="http://schema.org/MusicGroup">
                     <a href="/interpretes/{{ inte.idInterprete }}" itemprop="url">
-                        {% load static %}
-                        <img alt="{{ inte.foto.name }}" src="{% static inte.foto.name %}" itemprop="image">
+                        
                         <span itemprop="name">{{ inte.nameInterprete }}</span>
                     </a>
                 </div>
@@ -27,4 +27,8 @@
             <li><a href="/loginI/">Nuevo intérprete?</a></li>
         </div>
     {% endif %}
+    
+    {% load static %}
+    <script src="{% static 'admin/js/buscadorInterpretes.js' %}" ></script>
+
 {% endblock %}

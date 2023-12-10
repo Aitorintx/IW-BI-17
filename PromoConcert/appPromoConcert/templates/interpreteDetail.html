@@ -13,9 +13,9 @@
             </ul>
             
             <h2>Festivales a los que acudirá {{ interprete.nameInterprete }}</h2>
-            {% if interprete.festivales.all %}
+            {% if interprete.festival_set.all %}
                 <ul>
-                    {% for festival in interprete.festivales.all %}
+                    {% for festival in interprete.festival_set.all %}
                         <li>
                             <a href="/festivales/{{ festival.idFestival }}">{{ festival.nombreFestival}}</a>
                         </li>

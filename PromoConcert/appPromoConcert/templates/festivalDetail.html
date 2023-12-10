@@ -12,9 +12,9 @@
             </ul>
             
             <h2>Artistas que acudirán a {{ festival.nombreFestival }}</h2>
-            {% if festival.interprete_set.all %}
+            {% if festival.interpretes.all %}
                 <ul>
-                    {% for interprete in festival.interprete_set.all %}
+                    {% for interprete in festival.interpretes.all %}
                         <li>
                             <a href="/interpretes/{{ interprete.idInterprete }}">{{ interprete.nameInterprete }}</a>
                         </li>
