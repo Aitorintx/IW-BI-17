@@ -60,7 +60,7 @@ def add_interprete(request):
         form = InterpreteForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('indexInterpretes') 
+            return redirect('interpretes') 
     else:
         form = InterpreteForm()
     return render(request, 'formularioInterprete.html', {'form': form})
@@ -70,7 +70,7 @@ def add_festival(request):
         form = FestivalForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('indexFestivales')
+            return redirect('festivales')
     else:
         form = FestivalForm()
 

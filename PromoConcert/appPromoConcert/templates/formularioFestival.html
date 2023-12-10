@@ -23,7 +23,7 @@
         </header>
 
         <h2>Agregar Festival</h2>
-        <form method="post" action="">
+        <form method="post" action="{% url 'addFestival' %}">
             {% csrf_token %}
             {{ form.as_p }}
 
