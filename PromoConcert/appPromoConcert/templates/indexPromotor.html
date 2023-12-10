@@ -3,12 +3,20 @@
 {% block titulo %}Listado de promotores musicales{% endblock %}
 
 {% block contenido %}
+    <select id="promotorDropdown">
+        <option value="" selected disabled>Seleccione un promotor</option>
+        {% for promotor in object_list %}
+            <option value="{{ promotor.idPromotor }}">{{ promotor.namePromotor }}</option>
+        {% endfor %}
+    </select>
+
+    <div id="promotorInfo">
     <h2>Listado de promotores musicales</h2>
     {% if object_list %}
         <div class="promotores-grid" itemscope itemtype="http://schema.org/Organization">
             {% for pro in object_list %}
                 <div class="promotor-item" itemprop="member" itemscope itemtype="http://schema.org/Person">
-                    <a href="/promotores/{{ pro.idPromotor }}" itemprop="url">
+                    <a>
                         {% load static %}
                         <img alt="{{ pro.foto.name }}" src="{% static pro.foto.name %}" itemprop="image">
                         <span itemprop="name">{{ pro.nombre }}</span>
@@ -54,4 +62,6 @@
         <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}"
            class="fb-xfbml-parse-ignore">Compartir</a>
     </div>
+
+    <script src="{% static 'admin/js/filtroPromotor.js' %}" > </script>   
 {% endblock %}
