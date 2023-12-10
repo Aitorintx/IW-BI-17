@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{%load static%}
 
 {% block titulo %}Listado de festivales{% endblock %}
 
@@ -10,14 +11,14 @@
                 <div class="festivales-item" itemscope itemtype="http://schema.org/MusicFestival">
                     <a href="/festivales/{{ fest.idFestival }}" itemprop="url">
                         {% load static %}
-                        <img alt="{{ fest.imagen.name }}" src="{% static fest.imagen.name %}" itemprop="image">
+                        <img alt="{{ fest.imagen.name }}" " itemprop="image">
                     </a>
                 </div>
                 
                 <!-- RDFa -->
                 <div vocab="http://schema.org/" typeof="MusicFestival">
                     <a property="url" href="/festivales/{{ fest.idFestival }}">
-                        <img property="image" src="{% static fest.imagen.name %}" alt="{{ fest.imagen.name }}">
+                        <img property="image"  alt="{{ fest.imagen.name }}">
                         <span property="name">{{ fest.nombreFestival }}</span>
                     </a>
                 </div>
@@ -27,7 +28,6 @@
                         "@context": "http://schema.org",
                         "@type": "MusicFestival",
                         "url": "/festivales/{{ fest.idFestival }}",
-                        "image": "{% static fest.imagen.name %}",
                         "name": "{{ fest.nombreFestival }}"
                     }
                 </script>
