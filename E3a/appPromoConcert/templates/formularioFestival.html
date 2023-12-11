@@ -6,10 +6,12 @@
 {% block contenido %}
 
         <h2>Agregar Festival</h2>
-        <form method="post" action="{% url 'addFestival' %}">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" id="bttn">Guardar</button>
-        </form>
+        <div class="formFest">
+            <form method="post" action="{% url 'addFestival' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" id="bttn">Guardar</button>
+            </form>
+        </div>
         <script src="{% static 'admin/js/notificacion.js' %}" > </script> 
 {% endblock %}
