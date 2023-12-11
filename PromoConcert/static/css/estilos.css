@@ -10,7 +10,10 @@ h2{
     text-align: center;
 }
 
-
+nav{
+    text-align: center;
+    margin-left:50px;
+}
 
 nav ul {
     list-style: none;
@@ -28,9 +31,15 @@ nav ul li a{
     border-radius: 2px;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body{
-    margin-top: 10px;
-	margin-left: 100px;
+    margin-top: 10px auto;
+	margin-left: 190px;
     margin-right: 100px;
 	padding: 5px;
     max-width: 900px;
@@ -109,3 +118,27 @@ body{
     text-align: center;
 }
 
+
+.fotoI{
+    text-align: center;
+}
+
+.formFest{
+    text-align: center;
+}
+
+.formFest input[type="text"],
+.formFest textarea {
+    width: 100px; /* Ajusta el ancho según sea necesario */
+    height: 25px;
+}
+
+.formInt{
+    text-align: center;
+}
+
+.formInt input[type="text"],
+.formInt textarea {
+    width: 150px; /* Ajusta el ancho según sea necesario */
+    height: 25px;
+}

@@ -27,7 +27,7 @@ nav ul li a{
 }
 
 body{
-    margin-top: 10px;
+    margin-top: 10px auto;
 	margin-left: 100px;
     margin-right: 100px;
 	padding: 5px;
@@ -100,4 +100,18 @@ body{
 
 .inicioSes{
     text-align: center;
+}
+
+.fotoI{
+    text-align: center;
+}
+
+form input[type="text"],
+form textarea {
+    width: 50%; /* Puedes ajustar el valor según sea necesario */
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
