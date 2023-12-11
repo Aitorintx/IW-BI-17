@@ -11,18 +11,14 @@
             {% for inte in lista_interpretes %}
                 <div class="interprete-item" itemscope itemtype="http://schema.org/MusicGroup">
                     <a href="{% url 'interpretes' %}{{ inte.idInterprete }}" itemprop="url">
-                       <!--<img src="{{ inte.imagen }}" alt="{{ inte.nameInterprete }}" itemprop="image"> <!-- Agrega una imagen del intérprete -->
                        <span itemprop="name">{{ inte.nameInterprete }}</span>
                     </a>
                     <div itemprop="description">{{ inte.descripcion }}</div> 
                     <div itemprop="genre">{{ inte.genero }}</div> 
                 
-                    <!-- Microdata -->
                     <div itemscope itemtype="http://schema.org/Event">
-                        <!--<span itemprop="name">{{ inte.nameInterprete }}</span>-->
                         <meta itemprop="url" content="{{ inte.nameInterprete }}">
                     </div>
-                    <!-- JSON-LD-->
                     <script type="application/ld+json">
                         {
                             "@context": "http://schema.org",

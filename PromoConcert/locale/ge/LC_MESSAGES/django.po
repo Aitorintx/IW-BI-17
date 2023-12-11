@@ -1,0 +1,26 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-10 23:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#: PromoConcert/settings.py:77
+msgid "¡Bienvenidos a Promo Concert!"
+msgstr "Willkommen beim Promo-Konzert!"
+
+#: PromoConcert/settings.py:78
+msgid "Somos una asociación dedicada a ofrecer la información más completa y actualizada sobre los festivales y conciertos más destacados del momento. En nuestro sitio web, encontrarás una amplia variedad de eventos clasificados por los principales promotores musicales de la industria, tales como Live Nation, AEG Live, OCESA CIE y Evenko. Además, te brindamos detalles detallados sobre los talentosos intérpretes que participan en estos eventos, ya sean solistas o grupos, sin distinguir entre ellos."
+msgstr "Wir sind ein Verein, der es sich zum Ziel gesetzt hat, die umfassendsten und aktuellsten Informationen zu den derzeit bedeutendsten Festivals und Konzerten anzubieten. Auf unserer Website finden Sie eine Vielzahl von Veranstaltungen, die von den führenden Musikveranstaltern der Branche wie Live Nation, AEG Live, OCESA CIE und Evenko bewertet werden. Darüber hinaus informieren wir Sie ausführlich über die talentierten Künstler, die an diesen Veranstaltungen teilnehmen, egal ob Solisten oder Gruppen, ohne zwischen ihnen zu unterscheiden."

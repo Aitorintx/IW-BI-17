@@ -1,15 +1,12 @@
 {% block contenido %}
-
-    <h2>Datos del promotor</h2>
     {% if promotor %}
-
+    <h2>{{ promotor.namePromotor }}</h2>
+    <br>
         <div itemscope itemtype="http://schema.org/Person">
             <ul>
-                <li itemprop="name">
-                    {{ promotor.namePromotor }}
-                </li>
                 <li itemprop="description">
                     {{ promotor.infoPromotor }}
+                    <br><br>
                 </li>
                 <li>
                     {% load static %}

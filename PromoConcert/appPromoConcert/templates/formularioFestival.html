@@ -23,12 +23,16 @@
         </header>
 
         <h2>Agregar Festival</h2>
+<<<<<<< HEAD
+=======
+        <div class="formFest">
+>>>>>>> ede6d11b3c3e2c7000f4adfe9b566473dedcf378
         <form method="post" action="{% url 'addFestival' %}">
             {% csrf_token %}
             {{ form.as_p }}
-
             <button type="submit" class="btn">Guardar</button>
         </form>
+        </div>
     </div>
 </body>
 

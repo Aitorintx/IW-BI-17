@@ -1,13 +1,19 @@
 {% extends 'base.html' %}
 
 {% load i18n %}
+{% load static %}
 
-{% block titulo %} Detalle del departamento {% endblock %}
+{% block titulo %} PromoConcert {% endblock %}
 
 {% block contenido %}
-    <h2 itemprop="headline">{% trans '¡Bienvenidos a Promo Concert!' %}</h2>
-    <p itemprop="description">{% trans 'Somos una asociación dedicada a ofrecer la información más completa y actualizada sobre los festivales y conciertos más destacados del momento. En nuestro sitio web, encontrarás una amplia variedad de eventos clasificados por los principales promotores musicales de la industria, tales como Live Nation, AEG Live, OCESA CIE y Evenko. Además, te brindamos detalles detallados sobre los talentosos intérpretes que participan en estos eventos, ya sean solistas o grupos, sin distinguir entre ellos.' %}</p>
 
+    <h2 itemprop="headline">{% trans '¡Bienvenidos a Promo Concert!' %}</h2>
+    <br><br>
+    <p itemprop="description">{% trans 'Somos una asociación dedicada a ofrecer la información más completa y actualizada sobre los festivales y conciertos más destacados del momento. En nuestro sitio web, encontrarás una amplia variedad de eventos clasificados por los principales promotores musicales de la industria, tales como Live Nation, AEG Live, OCESA CIE y Evenko. Además, te brindamos detalles detallados sobre los talentosos intérpretes que participan en estos eventos, ya sean solistas o grupos, sin distinguir entre ellos.' %}</p>
+    <br><br>
+    <div class="fotoI">
+        <img src="../static/img/fondo.jpg">
+    </div>
     <!-- Microdata para Twitter -->
     <div itemscope itemtype="https://schema.org/Organization">
         <meta itemprop="name" content="Promo Concert">

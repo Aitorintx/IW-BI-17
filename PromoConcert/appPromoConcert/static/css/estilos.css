@@ -26,7 +26,7 @@ nav ul li a{
     border-radius: 2px;
 }
 
-body{
+body {
     margin-top: 10px;
 	margin-left: 100px;
     margin-right: 100px;
@@ -37,6 +37,7 @@ body{
     align-items: center;
     justify-content: center;
 }
+
 
 .promotores-grid {
     display: grid;
@@ -99,4 +100,18 @@ body{
 
 .inicioSes{
     text-align: center;
+}
+
+.fotoI{
+    text-align: center;
+}
+
+form input[type="text"],
+form textarea {
+    width: 50%; /* Puedes ajustar el valor según sea necesario */
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
