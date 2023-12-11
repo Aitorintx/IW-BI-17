@@ -27,7 +27,7 @@ nav ul li a{
 }
 
 body{
-    margin-top: 10px;
+    margin-top: 10px auto;
 	margin-left: 100px;
     margin-right: 100px;
 	padding: 5px;
@@ -98,5 +98,9 @@ body{
 }
 
 .inicioSes{
+    text-align: center;
+}
+
+.fotoI{
     text-align: center;
 }
