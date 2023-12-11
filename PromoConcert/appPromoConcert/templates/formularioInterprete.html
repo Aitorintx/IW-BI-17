@@ -23,11 +23,13 @@
         </header>
 
         <h2>Agregar Intérprete</h2>
-        <form method="post" action="{% url 'addInterprete' %}">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn">Guardar</button>
-        </form>
+        <div class="formInt">
+            <form method="post" action="{% url 'addInterprete' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn">Guardar</button>
+            </form>
+        </div>
         
     </div>
 

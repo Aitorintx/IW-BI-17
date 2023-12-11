@@ -122,3 +122,23 @@ body{
 .fotoI{
     text-align: center;
 }
+
+.formFest{
+    text-align: center;
+}
+
+.formFest input[type="text"],
+.formFest textarea {
+    width: 100px; /* Ajusta el ancho según sea necesario */
+    height: 25px;
+}
+
+.formInt{
+    text-align: center;
+}
+
+.formInt input[type="text"],
+.formInt textarea {
+    width: 150px; /* Ajusta el ancho según sea necesario */
+    height: 25px;
+}
