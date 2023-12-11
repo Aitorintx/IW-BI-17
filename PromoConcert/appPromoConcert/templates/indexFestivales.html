@@ -18,7 +18,6 @@
                 <!-- RDFa -->
                 <div vocab="http://schema.org/" typeof="MusicFestival">
                     <a property="url" href="{% url 'festivales' %}{{ fest.idFestival }}">
-                        <img property="image"  alt="{{ fest.imagen.name }}">
                         <span property="name">{{ fest.nombreFestival }}</span>
                     </a>
                 </div>

@@ -24,38 +24,6 @@
             {% endif %}
         </div>
 
-        <!-- JSON-LD-->
-        <script type="application/ld+json">
-            {
-                "@context": "http://schema.org",
-                "@type": "MusicEvent",
-                "name": "{{ festival.nombreFestival }}",
-                "description": "{{ festival.infoFestival }}",
-                "performer": [
-                    {% for interprete in festival.interpretes.all %}
-                        {
-                            "@type": "MusicGroup",
-                            "name": "{{ interprete.nameInterprete }}",
-                            "url": "/interpretes/{{ interprete.idInterprete }}"
-                        }{% if not forloop.last %},{% endif %}
-                    {% endfor %}
-                ]
-            }
-        </script>
-
-        <!-- Twitter -->
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="{{ festival.nombreFestival }}">
-        <meta name="twitter:description" content="{{ festival.infoFestival }}">
-        <meta name="twitter:image" content="URL_DE_LA_IMAGEN_DEL_FESTIVAL">
-
-        <!-- En Facebook -->
-        <meta property="og:title" content="{{ festival.nombreFestival }}">
-        <meta property="og:type" content="music festival">
-        <meta property="og:url" content="URL_DEL_FESTIVAL">
-        <meta property="og:image" content="URL_DE_LA_IMAGEN_DEL_FESTIVAL">
-        <meta property="og:description" content="{{ festival.infoFestival }}">
-        <meta property="og:site_name" content="Nombre del sitio">
     {% else %}
         <p>No existe este festival.</p>
     {% endif %}
