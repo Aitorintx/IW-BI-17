@@ -6,10 +6,12 @@
 {% block contenido %}
 
         <h2>Agregar Interprete</h2>
-        <form method="post" action="{% url 'addInterprete' %}">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" id="button">Guardar</button>
-        </form>
+        <div class="formInt">
+            <form method="post" action="{% url 'addInterprete' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" id="button">Guardar</button>
+            </form>
+        </div>
         <script src="{% static 'admin/js/noti.js' %}" > </script> 
 {% endblock %}
