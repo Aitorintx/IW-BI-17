@@ -1,39 +1,15 @@
-<!DOCTYPE html>
-{% load static %} 
-<html lang="en">
+{% extends "base.html" %}
+{%load static%}
 
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
-    <title>Agregar Festival</title>
-</head>
+{% block titulo %} Agregar Festival {% endblock %}
 
-<body>
-    <div class="contenedor">
-        <header>
-            <h1>Gestor de PromoConcert</h1>
-            <nav>
-                <ul>
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="/promotores/">Promotoras</a></li>
-                    <li><a href="/festivales/">Festivales</a></li>
-                    <li><a href="/interpretes/">Interpretes</a></li>
-                </ul>
-            </nav>
-        </header>
+{% block contenido %}
 
         <h2>Agregar Festival</h2>
-<<<<<<< HEAD
-=======
-        <div class="formFest">
->>>>>>> ede6d11b3c3e2c7000f4adfe9b566473dedcf378
         <form method="post" action="{% url 'addFestival' %}">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit" class="btn">Guardar</button>
+            <button type="submit" id="bttn">Guardar</button>
         </form>
-        </div>
-    </div>
-</body>
-
-</html>
+        <script src="{% static 'admin/js/notificacion.js' %}" > </script> 
+{% endblock %}

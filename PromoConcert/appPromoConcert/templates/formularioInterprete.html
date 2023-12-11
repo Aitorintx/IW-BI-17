@@ -1,39 +1,15 @@
-<!DOCTYPE html>
-{% load static %} 
-<html lang="en">
+{% extends "base.html" %}
+{%load static%}
 
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
-    <title>Agregar Intérprete</title>
-</head>
+{% block titulo %} Agregar Interprete {% endblock %}
 
-<body>
-    <div id="app" class="contenedor">
-        <header>
-            <h1>Gestor de PromoConcert</h1>
-            <nav>
-                <ul>
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="/promotores/">Promotoras</a></li>
-                    <li><a href="/festivales/">Festivales</a></li>
-                    <li><a href="/interpretes/">Interpretes</a></li>
-                </ul>
-            </nav>
-        </header>
+{% block contenido %}
 
-        <h2>Agregar Intérprete</h2>
-        <div class="formInt">
-            <form method="post" action="{% url 'addInterprete' %}">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit" class="btn">Guardar</button>
-            </form>
-        </div>
-        
-    </div>
-
-
-</body>
-
-</html>
+        <h2>Agregar Interprete</h2>
+        <form method="post" action="{% url 'addInterprete' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" id="button">Guardar</button>
+        </form>
+        <script src="{% static 'admin/js/noti.js' %}" > </script> 
+{% endblock %}

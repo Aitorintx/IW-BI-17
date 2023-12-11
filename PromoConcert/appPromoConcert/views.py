@@ -78,34 +78,40 @@ def add_festival(request):
 
 def loginF(request):
     if request.method == 'POST':
-        form = CustomAuthenticationForm(request, request.POST)
-        if form.is_valid():
-            name_promotor = form.cleaned_data['namePromotor']
-            user = authenticate(request, name_promotor=name_promotor)
+        promotores = get_list_or_404(Promotor.objects.all())
+        authorized_usernames = [promotor.namePromotor for promotor in promotores]
 
-            if user is not None:
-                login(request, user)
-                return redirect('formularioFestival')  # Ajusta la URL según tu aplicación
-    else:
-        form = CustomAuthenticationForm()
+        entered_username = request.POST.get('username', '')  # Get the entered username from the form
+        if entered_username in authorized_usernames:
+            # Username matches one of the names in the Promotor objects
+            # Perform actions for a successful match, for example, setting a session variable
+            request.session['authenticated'] = True
+            return redirect('addFestival')
+        else:
+            # Username doesn't match any name in the Promotor objects
+            # Handle authentication failure, for example, show an error message
+            pass
 
-    return render(request, 'loginF.html', {'form': form})
+    return render(request, 'loginF.html')
 
 
 def loginI(request):
     if request.method == 'POST':
-        form = CustomAuthenticationForm(request, request.POST)
-        if form.is_valid():
-            name_promotor = form.cleaned_data['namePromotor']
-            user = authenticate(request, name_promotor=name_promotor)
+        promotores = get_list_or_404(Promotor.objects.all())
+        authorized_usernames = [promotor.namePromotor for promotor in promotores]
 
-            if user is not None:
-                login(request, user)
-                return redirect('formularioFestival')  # Ajusta la URL según tu aplicación
-    else:
-        form = CustomAuthenticationForm()
+        entered_username = request.POST.get('username', '')  # Get the entered username from the form
+        if entered_username in authorized_usernames:
+            # Username matches one of the names in the Promotor objects
+            # Perform actions for a successful match, for example, setting a session variable
+            request.session['authenticated'] = True
+            return redirect('addInterprete')
+        else:
+            # Username doesn't match any name in the Promotor objects
+            # Handle authentication failure, for example, show an error message
+            pass
 
-    return render(request, 'loginI.html', {'form': form})
+    return render(request, 'loginI.html')
 
 
 class PromotoresList(ListView):

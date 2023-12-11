@@ -1,17 +1,19 @@
 {% extends "base.html" %}
 {% load static %} 
 
-{% block titulo %} Inicio sesion Promotora {% endblock %}
+
+{% block titulo %}  {% endblock %}
 {% block contenido %}
     <h2>Inicio sesión promotora</h2>
         <div class="inicioSes">
-            <form method="post" action="{% url 'loginF' %}">
+            <form id="loginForm" method="post" action="{% url 'loginI' %}">
                 {% csrf_token %}
-                {{ form.as_p }}
+                <input type="text" id="usernameField" name="username" placeholder="Enter your name">
                 <br><br>
-                <button type="submit"><a href="{% url 'addInterprete' %}">Iniciar Sesión</a></button>
+                <button type="submit">Iniciar Sesión</a> </button>
             </form>
-           </div>
-{%endblock%}
+        </div>
+    
+{% endblock %}
 
     
