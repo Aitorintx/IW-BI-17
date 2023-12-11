@@ -10,10 +10,14 @@ document.getElementById('promotorDropdown').addEventListener('change', function(
 function loadPromotorDetails(promotorId) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById('promotorInfo').innerHTML = this.responseText;
+        if (this.readyState == 4) {
+            if (this.status == 200) {
+                document.getElementById('promotorInfo').innerHTML = this.responseText;
+            } else {
+                console.error("Error al cargar los detalles del promotor");
+            }
         }
     };
-    xhttp.open("GET", promotorId, true);
+    xhttp.open("GET", `/promotores/${promotorId}/`, true); // Ajusta la URL según tu estructura de ruta en Django
     xhttp.send();
 }

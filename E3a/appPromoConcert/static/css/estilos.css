@@ -1,13 +1,18 @@
 h1 {
-    color: rgb(255, 255, 255);
+    color: rgb(12, 12, 12);
     text-align: center;
+}
+header{
+    margin-bottom: 50px;
 }
 
 h2{
     text-align: center;
 }
-header{
-    background-color: rgb(244, 173, 244)
+
+nav{
+    text-align: center;
+    margin-left:50px;
 }
 
 nav ul {
@@ -15,29 +20,41 @@ nav ul {
     display: flex;
 }
 nav ul li{
-    margin: 0 30px;
+    margin: 0 42px;
 }
 
 nav ul li a{
     text-decoration: none;
-    color:#fff;
+    color:#090909;
     font-size: 15px;
     padding: 5px 3px;
     border-radius: 2px;
 }
 
-body {
-    margin-top: 10px;
-	margin-left: 100px;
-    margin-right: 100px;
-	padding: 5px;
-    max-width: 900px;
-    background-color: blanchedalmond;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    display: flex;
+    justify-content: center; 
+    padding-top: 10px; 
+    margin-left: 190px;
+    margin-right: 100px;
+    padding: 5px;
+    max-width: 900px;
+    background-color: rgb(254, 194, 104);
+    text-align: left;
+}
+.contenedor{
+    max-width: 1000px;
+    background-color:blanchedalmond;
+    border-radius: 30px;
+    padding: 50px;
+    color: #000000;
+}
 
 .promotores-grid {
     display: grid;
@@ -56,10 +73,10 @@ body {
     border-radius: 8px; 
 }
 
-
 .contenedor ul{
     list-style: none;
 }
+
 .contenedor ul li a{
     text-align: left;
 }
@@ -98,20 +115,32 @@ body {
     font-size: 14px;
 }
 
+
 .inicioSes{
     text-align: center;
 }
+
 
 .fotoI{
     text-align: center;
 }
 
-form input[type="text"],
-form textarea {
-    width: 50%; /* Puedes ajustar el valor según sea necesario */
-    padding: 8px;
-    margin-bottom: 16px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.formFest{
+    text-align: center;
+}
+
+.formFest input[type="text"],
+.formFest textarea {
+    width: 100px; /* Ajusta el ancho según sea necesario */
+    height: 25px;
+}
+
+.formInt{
+    text-align: center;
+}
+
+.formInt input[type="text"],
+.formInt textarea {
+    width: 150px; /* Ajusta el ancho según sea necesario */
+    height: 25px;
 }

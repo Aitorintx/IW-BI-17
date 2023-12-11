@@ -37,13 +37,15 @@ nav ul li a{
     box-sizing: border-box;
 }
 
-body{
-    margin-top: 10px auto;
-	margin-left: 190px;
+body {
+    display: flex;
+    justify-content: center; 
+    padding-top: 10px; 
+    margin-left: 190px;
     margin-right: 100px;
-	padding: 5px;
+    padding: 5px;
     max-width: 900px;
-    background-color: rgb(254, 194, 104); 
+    background-color: rgb(254, 194, 104);
     text-align: left;
 }
 .contenedor{

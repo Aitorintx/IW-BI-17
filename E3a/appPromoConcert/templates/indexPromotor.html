@@ -17,6 +17,7 @@
             {% for pro in object_list %}
                 <div class="promotor-item" itemprop="member" itemscope itemtype="http://schema.org/Person">
                     <a>
+                    
                         {% load static %}
                         <img alt="{{ pro.foto.name }}" src="{% static pro.foto.name %}" itemprop="image">
                         <span itemprop="name">{{ pro.nombre }}</span>
