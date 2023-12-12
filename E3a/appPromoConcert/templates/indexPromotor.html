@@ -24,29 +24,7 @@
                     </a>
                     <div itemprop="description">{{ pro.descripcion }}</div> 
                     
-                    <!--Twitter -->
-                    <div itemscope itemtype="https://schema.org/Person">
-                        <meta itemprop="name" content="{{ pro.nombre }}">
-                        <meta itemprop="url" content="{% url 'indexPromotor' %}{{ pro.idPromotor }}">
-                    </div>
                     
-                    <!--Facebook -->
-                    <div itemscope itemtype="https://schema.org/Person">
-                        <meta itemprop="name" content="{{ pro.nombre }}">
-                        <meta itemprop="url" content="{% url 'indexPromotor' %}{{ pro.idPromotor }}">
-                    </div>
-                    
-                    <!-- JSON-LD-->
-                    <script type="application/ld+json">
-                        {
-                            "@context": "http://schema.org",
-                            "@type": "Organization",
-                            "name": "{{ pro.nombre }}",
-                            "url": "/promotores/{{ pro.idPromotor }}",
-                            "image": "{{ pro.foto.name }}",
-                            "description": "{{ pro.descripcion }}"
-                        }
-                    </script>
                 </div>
             {% endfor %}
         </div>

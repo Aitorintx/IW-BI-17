@@ -7,30 +7,6 @@
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
     <title itemprop="name">{% block titulo %}Gestor de Promo Concerts{% endblock %}</title>
     
-    <!--Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Gestor de Promo Concerts">
-    <meta name="twitter:description" content="Descripción de la página">
-    <meta name="twitter:image" content="{% static 'path/to/twitter-image.jpg' %}">
-    
-    <!--Facebook -->
-    <meta property="og:title" content="Gestor de Promo Concerts">
-    <meta property="og:description" content="Descripción de la página">
-    <meta property="og:image" content="{% static 'path/to/facebook-image.jpg' %}">
-    <meta property="og:url" content="https://www.facebook.com/login.php?skip_api_login=1&api_key=966242223397117&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fsharer%2Fsharer.php%3Fu%3Dhttp%253A%252F%252F127.0.0.1%253A8000%252Ffestivales%252F&cancel_url=https%3A%2F%2Fwww.facebook.com%2Fdialog%2Fclose_window%2F%3Fapp_id%3D966242223397117%26connect%3D0%23_%3D_&display=popup&locale=es_ES">
-    <meta property="og:type" content="website">
-
-    <!-- JSON-LD -->
-    <script type="application/ld+json">
-        {
-            "@context": "http://schema.org",
-            "@type": "WebPage",
-            "name": "Gestor de Promo Concerts",
-            "description": "Descripción de la página",
-            "url": "URL de la página",
-            "image": "{% static 'path/to/main-image.jpg' %}"
-        }
-    </script>
 
     <!-- Agregamos Vue.js -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>

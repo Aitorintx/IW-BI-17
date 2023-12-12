@@ -14,29 +14,5 @@
     <div class="fotoI">
         <img src="{% static 'img/fondo.jpg' %}" alt="{% trans 'Foto portada' %}">
     </div>
-    <!-- Microdata para Twitter -->
-    <div itemscope itemtype="https://schema.org/Organization">
-        <meta itemprop="name" content="Promo Concert">
-        <meta itemprop="url" content="https://www.facebook.com/?locale=es_ES">
-        <meta itemprop="description" content="Somos una asociación dedicada a ofrecer información sobre festivales y conciertos destacados.">
-    </div>
 
-    <!-- Microdata para Facebook -->
-    <div itemscope itemtype="https://schema.org/Organization">
-        <meta itemprop="name" content="Promo Concert">
-        <meta itemprop="url" content="https://www.facebook.com/?locale=es_ES">
-        <meta itemprop="description" content="Somos una asociación dedicada a ofrecer información sobre festivales y conciertos destacados.">
-    </div>
-
-    <!-- JSON-LD-->
-    <script type="application/ld+json">
-        {
-            "@context": "http://schema.org",
-            "@type": "Organization",
-            "name": "Promo Concert",
-            "url": "URL_DE_TU_SITIO_WEB",
-            "description": "Somos una asociación dedicada a ofrecer información sobre festivales y conciertos destacados."
-            // Puedes agregar más propiedades según sea necesario
-        }
-    </script>
 {% endblock %}

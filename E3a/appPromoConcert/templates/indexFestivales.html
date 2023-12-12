@@ -21,15 +21,7 @@
                         <span property="name">{{ fest.nombreFestival }}</span>
                     </a>
                 </div>
-                <!-- JSON-LD -->
-                <script type="application/ld+json">
-                    {
-                        "@context": "http://schema.org",
-                        "@type": "MusicFestival",
-                        "url": "/festivales/{{ fest.idFestival }}",
-                        "name": "{{ fest.nombreFestival }}"
-                    }
-                </script>
+                
             {% endfor %}
         </div>
 
