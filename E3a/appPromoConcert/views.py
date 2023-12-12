@@ -14,7 +14,7 @@ from django.contrib import messages
 
 
 def index(request):
-	promotoresFiltrados = Promotor.objects.raw('SELECT * FROM( SELECT * FROM appPromoConcert_festival ORDER BY fecha DESC) GROUP BY promotor_id ')
+	promotoresFiltrados = Festival.objects.raw('SELECT * FROM( SELECT * FROM appPromoConcert_Festival ORDER BY nombreFestival DESC) GROUP BY promotor_id ')
 	context = {'lista_promotores': promotoresFiltrados }
 	return render(request, 'index.html', context)
 
